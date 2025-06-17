@@ -1,4 +1,4 @@
-site_name: "Exploring Enterprise Development Tools"
+site_name: "Exploring Software Development Tools"
 extra_css:
   - stylesheets/extra.css
 theme:
@@ -50,3 +50,10 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Git:
+    - Core Functionality:
+      - Introducing Git: git/core_functionality/intro_to_git.md
+#    - Next-Level Git:
+#    - Remotes and Collaboration:
+#    - Advanced Git:
+#  - JQ:
