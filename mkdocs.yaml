@@ -51,9 +51,11 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Git:
-    - Core Functionality:
-      - Introducing Git: git/core_functionality/intro_to_git.md
+      - What is Git?: git/core_functionality/intro_to_git.md
+      - Core Functionality:
+          - Git Configuration Files: git/core_functionality/git_config_files.md
 #    - Next-Level Git:
 #    - Remotes and Collaboration:
 #    - Advanced Git:
 #  - JQ:
+
