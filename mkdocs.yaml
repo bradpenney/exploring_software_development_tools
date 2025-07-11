@@ -54,8 +54,8 @@ nav:
       - What is Git?: git/core_functionality/intro_to_git.md
       - Core Functionality:
           - Git Configuration Files: git/core_functionality/git_config_files.md
-  - NVIM:
-      - What is NVIM?: nvim/intro_to_nvim.md
+  - NeoVim:
+      - What is NeoVim?: nvim/intro_to_nvim.md
 #    - Next-Level Git:
 #    - Remotes and Collaboration:
 #    - Advanced Git:
