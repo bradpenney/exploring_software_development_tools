@@ -2,7 +2,7 @@
 
 The configuration files for Git are stored in three different locations:
 
-1. **[Optional] System-Wide**: stored in `/etc/gitconfig`, settings stored here affect all users
+1. **[Optional] System-Wide**: located in `/etc/gitconfig`, settings stored here affect all users
    of a system. It is very common for this this file to be empty or non-existent, as
    shared computers are relatively rare.
 1. **User-Specific**: stored in `~/.gitconfig`, the per-user configuration file for `git`.  This stores information
