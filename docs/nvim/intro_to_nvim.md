@@ -14,7 +14,7 @@ Command mode, presssing `D` will delete the current line, while in Insert mode,
 it will insert the letter `D` at the current cursor position. So switching
 modes (with `Esc` by default) gives a second layer of functionality to your
 keyboard which pretty much equates to superpowers without lifting your
-fingers from the keyboard.
+fingers!
 
 NVIM is a fork of and inherits its magic from Vim, which has been around
 since the 1990s. NVIM builds on Vim's incredible foundation but has better
@@ -36,7 +36,7 @@ of plugins and configurations designed to be easy and extensible.
 
 Here's a screenshot of this file being created in LazyVim:
 
-![Writing in LazyVim](../../images/lazyvim.png)
+![Writing in LazyVim](../images/lazyvim.png)
 
 ???+ warning "Learning Curve"
 

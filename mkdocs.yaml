@@ -54,10 +54,10 @@ nav:
       - What is Git?: git/core_functionality/intro_to_git.md
       - Core Functionality:
           - Git Configuration Files: git/core_functionality/git_config_files.md
+#      - Internals:
+#          - Git Internals: git/internals/git_internals.md
   - NeoVim:
       - What is NeoVim?: nvim/intro_to_nvim.md
-#    - Next-Level Git:
-#    - Remotes and Collaboration:
-#    - Advanced Git:
-#  - JQ:
-
+#  - Automation:
+#      - Makefiles: automation/makefiles.md
+#      - Semantic Versioning: automation/semantic_versioning.md
