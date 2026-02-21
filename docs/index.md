@@ -1,55 +1,110 @@
-<img src="images/exploring_software_development_tools.png" alt="Exploring Software Development Tools" class="img-responsive-right" width="300">
+---
+title: Exploring Software Development Tools - Remove Tool Friction
+description: Professional guides for SREs and Platform Engineers to master Git, JQ, Tmux, and Neovim. Remove tool friction and focus on building reliable infrastructure.
+---
 
 # Exploring Software Development Tools
 
-Welcome to Exploring Software Development Tools, a focused guide to the command-line utilities and development environments that form the foundation of modern software engineering. This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosystem.
+**Remove tool friction. Work faster. Keep platforms running.**
 
-Every software developer builds on a stack of tools—version control systems, text editors, build automation, data transformation utilities, and more. These tools aren't just conveniences; they're force multipliers that transform how we write, test, and deploy software. Yet many developers learn these tools organically, picking up commands and flags through trial and error, never fully grasping the underlying concepts that make them powerful.
+<img src="images/exploring_software_development_tools.png" alt="Exploring Software Development Tools" class="img-responsive-right" width="300">
 
-This site takes a different approach. Rather than presenting scattered tips and tricks, each tool is explored systematically: what it does, why it matters, how it works, and how to use it effectively in real-world scenarios.
+Welcome to a practical guide for SREs and Platform Engineers who need to master the tools that make infrastructure work scale.
 
-## What You'll Find Here
+## The Problem
 
-This site covers essential development tools organized by category:
+It's 2am. The API is down. You SSH into the server, and suddenly you're fighting your tools instead of fixing the problem. You're parsing JSON by squinting at your terminal. Your SSH connection drops and you lose your work. You're typing the same 15 commands for the hundredth time this week.
 
-**Version Control**
+**This is tool friction. This site exists to remove it.**
 
-- Git fundamentals and advanced workflows
-- Configuration strategies across projects
-- Branching models and collaboration patterns
+## The Solution
 
-**Text Editors**
+While [exploring_linux](https://linux.bradpenney.io), [exploring_python](https://python.bradpenney.io), and [exploring_kubernetes](https://k8s.bradpenney.io) teach *what* to do, this site teaches *how* to do it efficiently. Master these tools and you'll:
 
-- NeoVim (Neovim) setup and philosophy
-- Modal editing concepts
-- Extensibility through Lua
+- Save 10+ hours per week on repetitive tasks
+- Debug incidents faster with proper tooling
+- Stop losing work to dropped SSH connections
+- Parse JSON/YAML without squinting
+- Edit configs on remote servers without pain
 
-**Data Processing**
+## How It's Organized
 
-- JSON manipulation with `jq`
-- YAML processing with `yq`
-- Command-line data transformation patterns
+Content is structured by **urgency and job context**:
 
-**Build Automation**
+<div class="grid cards" markdown>
 
-- Makefiles and build systems
-- Task automation workflows
-- Dependency management
+-   :material-package-variant: **📦 Essentials**
 
-**Command-Line Utilities**
+    ---
 
-- GitHub CLI (`gh`) for workflow automation
-- Shell scripting best practices
-- Productivity multipliers
+    **Core tools you need today.** Can't do the job without these. Each tool has a series of articles.
+
+    **Git Series:**
+
+    - **[Git Basics](./essentials/git/git_basics.md)** - Your first repository, three states, local version control
+    - **[Git Collaboration](./essentials/git/git_collaboration.md)** - Remote repos, GitHub/GitLab, teamwork
+    - Git Safety (coming soon) - .gitignore, secrets, undo commands
+    - Git Configuration (coming soon) - Aliases, editor setup, advanced config
+
+    **JQ Series:** (coming soon)
+
+    **YQ Series:** (coming soon)
+
+    **Vim Series:** (coming soon)
+    - YQ - Wrangle YAML configs for K8s/Ansible (coming soon)
+    - Vim Survival Mode - Edit on servers (coming soon)
+
+-   :material-lightning-bolt: **⚡ Efficiency**
+
+    ---
+
+    **Make your day 10x easier.** Tools that transform how you work.
+
+    - Terminal Multiplexing (`tmux`) - Persistent SSH sessions
+    - VS Code Remote - Edit on servers comfortably
+    - Shell Productivity (`fzf`, aliases) - Save hours typing
+    - Git Workflows - Branches and conflict resolution
+
+-   :material-target: **🎯 Mastery**
+
+    ---
+
+    **Optional power tools.** For when you need maximum efficiency.
+
+    - NeoVim Full Setup - Terminal IDE for remote work
+    - Advanced Shell - Custom functions, automation
+    - Automation Patterns - Makefiles, pre-commit hooks
+    - GitHub Actions - Infrastructure CI/CD
+
+</div>
 
 ## Who This Is For
 
-Whether you're a student learning development workflows, a professional sharpening your toolkit, or a hobbyist exploring the command line, you'll find structured, practical content here. Each article balances conceptual understanding with hands-on examples, bridging the gap between "what this tool does" and "why you should care."
+You're an **SRE or Platform Engineer** who:
 
-## Philosophy
+- Responds to incidents (on-call rotations, debugging under pressure)
+- Manages infrastructure as code (Terraform, Ansible, K8s manifests)
+- Works primarily in terminal environments (SSH, remote servers)
+- Needs to parse JSON/YAML constantly (APIs, kubectl output, logs)
+- Wants to automate repetitive tasks
 
-These tools share a common thread: they prioritize composability, automation, and precision. Understanding them deeply changes how you approach software development. A developer fluent in Git doesn't just track changes—they craft meaningful history. A developer comfortable with `jq` doesn't just parse JSON—they transform data streams. A developer skilled with NeoVim doesn't just edit text—they orchestrate their development environment.
+You may or may not have a traditional developer background. **This site meets you where you are.**
 
-The goal isn't mastery of every flag and option (that's what man pages are for). The goal is understanding the mental models these tools embody, so you can use them intentionally and effectively.
+## Integration with Other Sites
 
-Thanks for visiting. Let's build something.
+This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosystem:
+
+- **[linux.bradpenney.io](https://linux.bradpenney.io)** - Linux commands and system administration
+- **[k8s.bradpenney.io](https://k8s.bradpenney.io)** - Kubernetes for platform engineers
+- **[python.bradpenney.io](https://python.bradpenney.io)** - Python automation and scripting
+- **[cs.bradpenney.io](https://cs.bradpenney.io)** - Computer science fundamentals
+
+**How they connect:**
+
+- Linux site + Tools site = Terminal mastery
+- Python site + Tools site = Automation capability
+- Kubernetes site + Tools site = Platform debugging skills
+
+---
+
+**Ready to remove tool friction?** Start with [Git Basics](./essentials/git/git_basics.md) - the first article in the Git Essentials series - to professionalize your scripts and infrastructure code.

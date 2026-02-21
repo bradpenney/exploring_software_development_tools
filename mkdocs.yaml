@@ -1,4 +1,8 @@
 site_name: "Exploring Software Development Tools"
+extra:
+  analytics:
+    provider: google
+    property: G-V01MJ4R3SQ
 extra_css:
   - stylesheets/extra.css
 theme:
@@ -65,14 +69,35 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Git:
-      - What is Git?: git/core_functionality/intro_to_git.md
-      - Core Functionality:
-          - Git Configuration Files: git/core_functionality/git_config_files.md
-#      - Internals:
-#          - Git Internals: git/internals/git_internals.md
-  - NeoVim:
-      - What is NeoVim?: nvim/intro_to_nvim.md
-#  - Automation:
-#      - Makefiles: automation/makefiles.md
-#      - Semantic Versioning: automation/semantic_versioning.md
+  - 📦 Essentials:
+      - Git Series:
+          - Git Basics: essentials/git/git_basics.md
+          - Git Collaboration: essentials/git/git_collaboration.md
+#          - Git Safety: essentials/git/git_safety.md
+#          - Git Configuration: essentials/git/git_configuration.md
+#      - JQ Series:
+#          - JQ Basics: essentials/jq/jq_basics.md
+#          - JQ Filters: essentials/jq/jq_filters.md
+#          - JQ for Logs: essentials/jq/jq_for_logs.md
+#      - YQ - Wrangling YAML: essentials/yq_wrangling_yaml.md
+#      - Vim Survival Mode: essentials/vim_survival_mode.md
+#      - Regular Expressions: essentials/regex_for_sres.md
+#      - Terminal Diagnostics: essentials/terminal_diagnostics.md
+#  - ⚡ Efficiency:
+#      - Terminal Multiplexing (tmux): efficiency/tmux.md
+#      - VS Code Remote: efficiency/vscode_remote.md
+#      - Shell Productivity: efficiency/shell_productivity.md
+#      - Git Workflows: efficiency/git_workflows.md
+#      - SSH Mastery: efficiency/ssh_mastery.md
+#      - GitHub CLI (gh): efficiency/github_cli.md
+#      - FZF Mastery: efficiency/fzf_advanced.md
+#      - Managing Environments (direnv): efficiency/direnv.md
+#  - 🎯 Mastery:
+#      - NeoVim Full Setup: mastery/neovim_full_setup.md
+#      - Git Internals: mastery/git_internals.md
+#      - Advanced Shell: mastery/advanced_shell.md
+#      - Makefiles: mastery/makefiles.md
+#      - Semantic Versioning: mastery/semantic_versioning.md
+#      - Automation Patterns: mastery/automation_patterns.md
+#      - Local Testing (Docker): mastery/local_testing_docker.md
+#      - GitHub Actions for SREs: mastery/github_actions_sre.md

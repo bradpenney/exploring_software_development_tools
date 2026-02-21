@@ -1,3 +1,5 @@
+/* Custom styles for Exploring Software Development Tools */
+
 /* Increase logo size in the header */
 .md-header__button.md-logo img {
   height: 100px !important; /* try 48px, 64px, or larger */
@@ -18,4 +20,49 @@
     float: right;
     margin: 0 0 1em 1em;
   }
+}
+
+/* Center mermaid diagrams */
+.mermaid {
+    text-align: center;
+}
+
+/* Force card grids to single column for better mobile experience */
+.md-typeset .grid.cards {
+    grid-template-columns: 1fr;
+}
+
+/* Center all tables */
+.md-typeset table {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.md-typeset .md-typeset__scrollwrap,
+.md-typeset .md-typeset__table {
+  display: flex;
+  justify-content: center;
+}
+
+/* Center table headers, left-align content */
+.md-typeset table th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.md-typeset table td {
+  text-align: left !important;
+  vertical-align: middle !important;
+}
+
+/* Ensure code blocks maintain proper styling */
+.md-typeset code {
+    word-break: break-word;
+}
+
+/* Improve readability of admonitions */
+.md-typeset .admonition {
+    border-left: 0.4rem solid;
 }
