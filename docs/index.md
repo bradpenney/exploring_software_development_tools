@@ -19,7 +19,7 @@ It's 2am. The API is down. You SSH into the server, and suddenly you're fighting
 
 ## The Solution
 
-While [exploring_linux](https://linux.bradpenney.io), [exploring_python](https://python.bradpenney.io), and [exploring_kubernetes](https://k8s.bradpenney.io) teach *what* to do, this site teaches *how* to do it efficiently. Master these tools and you'll:
+While [Exploring Linux](https://linux.bradpenney.io), [Exploring Python](https://python.bradpenney.io), and [Exploring Kubernetes](https://k8s.bradpenney.io) teach *what* to do, this site teaches *how* to do it efficiently. Master these tools and you'll:
 
 - Save 10+ hours per week on repetitive tasks
 - Debug incidents faster with proper tooling
@@ -49,9 +49,9 @@ Content is structured by **urgency and job context**:
     **JQ Series:** (coming soon)
 
     **YQ Series:** (coming soon)
+    - YQ - Wrangle YAML configs for K8s/Ansible (coming soon)
 
     **Vim Series:** (coming soon)
-    - YQ - Wrangle YAML configs for K8s/Ansible (coming soon)
     - Vim Survival Mode - Edit on servers (coming soon)
 
 -   :material-lightning-bolt: **⚡ Efficiency**
@@ -94,10 +94,10 @@ You may or may not have a traditional developer background. **This site meets yo
 
 This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosystem:
 
-- **[linux.bradpenney.io](https://linux.bradpenney.io)** - Linux commands and system administration
-- **[k8s.bradpenney.io](https://k8s.bradpenney.io)** - Kubernetes for platform engineers
-- **[python.bradpenney.io](https://python.bradpenney.io)** - Python automation and scripting
-- **[cs.bradpenney.io](https://cs.bradpenney.io)** - Computer science fundamentals
+- **[Exploring Linux](https://linux.bradpenney.io)** - Linux commands and system administration
+- **[Exploring Kubernetes](https://k8s.bradpenney.io)** - Kubernetes for platform engineers
+- **[Exploring Python](https://python.bradpenney.io)** - Python automation and scripting
+- **[Exploring Computer Science](https://cs.bradpenney.io)** - Computer science fundamentals
 
 **How they connect:**
 
