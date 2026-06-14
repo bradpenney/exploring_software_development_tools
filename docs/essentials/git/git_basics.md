@@ -1,4 +1,5 @@
 ---
+date: "2026-02-20 22:43"
 title: Git Basics - Your First Repository
 description: Learn Git fundamentals for platform engineers. Install Git, create your first repository, understand the three states, and start tracking your scripts professionally.
 ---

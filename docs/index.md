@@ -1,4 +1,5 @@
 ---
+date: "2025-06-17 22:57"
 title: Exploring Software Development Tools - Remove Tool Friction
 description: Professional guides for SREs and Platform Engineers to master Git, JQ, Tmux, and Neovim. Remove tool friction and focus on building reliable infrastructure.
 ---
