@@ -285,6 +285,7 @@ The site has comprehensive SEO optimization:
 
 ```yaml
 ---
+date: "2026-01-15 12:00"
 title: Clear, Descriptive Title (50-60 chars ideal)
 description: Compelling description for search results (150-160 chars ideal)
 ---
@@ -292,6 +293,7 @@ description: Compelling description for search results (150-160 chars ideal)
 
 **Rules:**
 
+- **Date**: Required — the RSS feed dates entries from this field. Format `date: "YYYY-MM-DD HH:MM"`. Omitting it logs an RSS build warning and leaves the feed entry undated.
 - **Title**: Should be unique across the site, descriptive, include key terms
 - **Description**: Summarize what the reader will learn, compelling call-to-action
 - **No keywords needed**: Modern search engines don't rely on keyword meta tags
@@ -307,7 +309,9 @@ description: Compelling description for search results (150-160 chars ideal)
 - Search indexing
 - Navigation (even if accidentally uncommented)
 
-**Current exclude configuration** (as of 2026-02-16):
+**Current exclude configuration** (as of 2026-06-21):
+
+The site uses the **Essentials → Efficiency → Mastery** tier structure (not the old `level_N` scheme — that never applied here). The `exclude` plugin was missing entirely until 2026-06-21, which silently leaked every draft into the build/sitemap/search; it now excludes all drafts:
 
 ```yaml
 plugins:
@@ -315,14 +319,20 @@ plugins:
   - meta
   - exclude:
       glob:
-        - "level_1/*"
-        - "level_2/*"
-        - "level_3/*"
-        - "level_4/*"
-        - "level_5/*"
-        - "level_6/*"
+        # PUBLISHED (do NOT exclude): index.md, essentials/git/git_basics.md,
+        # essentials/git/git_collaboration.md, essentials/web/inspecting_http_traffic.md
+        # Essentials drafts
+        - "essentials/jq_parsing_json.md"
+        - "essentials/regex_for_sres.md"
+        - "essentials/terminal_diagnostics.md"
+        - "essentials/vim_survival_mode.md"
+        - "essentials/yq_wrangling_yaml.md"
+        - "efficiency/*"   # all draft
+        - "mastery/*"      # all draft
   # ... other plugins
 ```
+
+**Published surface (2026-06-21):** Home, Git Basics, Git Collaboration, and "Seeing API Traffic: curl -v and the Network Tab" (`essentials/web/inspecting_http_traffic.md`, under the **Web Tools** topic group). Everything else is draft. A meta-refresh stub at `docs/essentials/inspecting_http_traffic/index.html` redirects the old URL to the new `/essentials/web/` path — do not delete it.
 
 **What this means:**
 - Draft articles can exist in these directories without appearing in search results
