@@ -47,6 +47,10 @@ Content is structured by **urgency and job context**:
     - Git Safety (coming soon) - .gitignore, secrets, undo commands
     - Git Configuration (coming soon) - Aliases, editor setup, advanced config
 
+    **Web Tools Series:**
+
+    - **[Seeing API Traffic: curl -v and the Network Tab](./essentials/web/inspecting_http_traffic.md)** - Inspect headers, status codes, and the request lifecycle on the wire
+
     **JQ Series:** (coming soon)
 
     **YQ Series:** (coming soon)
