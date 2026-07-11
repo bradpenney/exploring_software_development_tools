@@ -27,12 +27,17 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/bradpenney
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/bradpenney
+    - icon: fontawesome/solid/globe
+      link: https://bradpenney.io
     - icon: fontawesome/solid/rss
       link: https://tools.bradpenney.io/feed_rss_created.xml
 extra_css:
   - stylesheets/extra.css
 theme:
   name: material
+  custom_dir: overrides
   font:
     text: IBM Plex Sans
     code: IBM Plex Mono
