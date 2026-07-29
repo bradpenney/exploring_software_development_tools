@@ -1,6 +1,6 @@
 # GitHub CLI (gh): Workflow Automation
 
-You've finished your code change. Now you have to open a browser, navigate to the repo, click "New Pull Request," fill out the form, and add reviewers. **There is a better way.**
+A finished code change usually means opening a browser, navigating to the repo, clicking "New Pull Request," filling out the form, and adding reviewers. **There is a better way.**
 
 The GitHub CLI (`gh`) brings the power of GitHub directly to your terminal. For SREs, this means you can manage PRs, view CI/CD status, and even interact with GitHub Actions without ever leaving your shell.
 

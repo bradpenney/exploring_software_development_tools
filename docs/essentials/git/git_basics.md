@@ -444,8 +444,6 @@ git remote -v                     # See remote repositories
 - [Pre-commit Hooks](https://pre-commit.com/) - Automate checks before commits (linting, security scans)
 
 ### Deep Dives
-- **Git Workflows** (coming soon) - Feature branches, pull requests, conflict resolution
-- **Git Internals** (coming soon) - How Git actually works under the hood
 
 ### Platform Engineering Context
 - [Infrastructure as Code Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html) - Why version control matters for IaC

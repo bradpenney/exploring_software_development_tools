@@ -1,6 +1,6 @@
 # Shell Productivity: FZF, Ripgrep, and Beyond
 
-You've been typing `kubectl get pods -n production | grep api` for the hundredth time this week. You're scrolling through your shell history using the `Up` arrow, hoping to find that one `curl` command from Tuesday. **There is a better way.**
+Typing `kubectl get pods -n production | grep api` for the hundredth time in a week is a familiar grind. So is scrolling through shell history with the `Up` arrow, hoping to find that one `curl` command from Tuesday. **There is a better way.**
 
 Modern CLI tools can transform your terminal from a basic text interface into a high-performance development environment. These tools prioritize speed, fuzzy matching, and sensible defaults to help you find information in milliseconds.
 

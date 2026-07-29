@@ -1,6 +1,6 @@
 # NeoVim Full Setup: The Terminal IDE
 
-You've learned basic Vim - you can move with `h/j/k/l` and edit files over SSH. But you're tired of switching back to VS Code for "real" work. **This is why you graduate to NeoVim.**
+Basic Vim — moving with `h/j/k/l`, editing files over SSH — covers the essentials. What it doesn't cover is the constant switch back to VS Code for "real" work. **This is why engineers graduate to NeoVim.**
 
 NeoVim is a modern fork of Vim designed for extensibility. By leveraging the Lua programming language and a massive ecosystem of plugins, you can transform your terminal editor into a high-performance IDE that rivals VS Code while remaining entirely keyboard-driven.
 

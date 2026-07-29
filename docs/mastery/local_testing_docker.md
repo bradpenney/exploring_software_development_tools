@@ -1,6 +1,6 @@
 # Local Testing with Docker and Podman
 
-You've written a complex shell script or a Python automation tool. You're ready to test it, but you don't want to run it on your laptop and mess up your local files, and you definitely don't want to test it in production. **This is why we use containers for local development.**
+A complex shell script or Python automation tool is ready to test — but running it directly on a laptop risks the local files, and testing it in production is out of the question. **This is why containers exist for local development.**
 
 Docker and Podman allow you to create isolated, reproducible environments that mimic your production servers. For SREs, this is the ultimate "sandbox" for testing scripts, infrastructure changes, and automation before they ever touch real systems.
 

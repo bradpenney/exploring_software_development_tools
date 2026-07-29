@@ -1,6 +1,6 @@
 # FZF Mastery: The Interactive Glue
 
-You've used `fzf` for basic history searching (`Ctrl+r`). But `fzf` is more than a history tool; it is a **universal interactive filter**. It is the "glue" that allows you to turn static lists into interactive workflows. **This is how you build your own custom CLI interfaces.**
+Basic history searching (`Ctrl+r`) is most people's first and only use of `fzf`. But `fzf` is more than a history tool — it's a **universal interactive filter**, the "glue" that turns static lists into interactive workflows. **This is how custom CLI interfaces get built.**
 
 `fzf` takes any list of text, lets you filter it in real-time, and outputs your selection. This simple primitive can be combined with almost any other tool to create powerful, custom workflows.
 

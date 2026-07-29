@@ -1,6 +1,6 @@
 # Git Workflows for Infrastructure
 
-You've made a change to a Terraform module in your feature branch. Meanwhile, a colleague merged a change to the same file in `main`. Now you have a merge conflict in a 500-line YAML file. **This is where a solid workflow saves your day.**
+A change lands in a Terraform module on a feature branch. Meanwhile, a colleague merges a change to the same file in `main`. The result: a merge conflict in a 500-line YAML file. **This is where a solid workflow saves the day.**
 
 In Platform Engineering, we don't just use Git to save code; we use it to coordinate changes to live environments. A structured workflow ensures that infrastructure changes are reviewed, tested, and deployed without causing outages.
 

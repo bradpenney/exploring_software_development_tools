@@ -177,7 +177,7 @@ graph TD
 ```
 
 !!! warning "Never Commit Directly to Main"
-    In professional environments, `main` is protected. You work on your own branch and merge to `main` via pull requests (covered in **Git Workflows** - coming soon). Direct commits to `main` are bad practice.
+    In professional environments, `main` is protected. You work on your own branch and merge to `main` via pull requests. Direct commits to `main` are bad practice.
 
 ### Morning: Start with a Clean Sync
 
@@ -252,7 +252,7 @@ git push -u origin feature/disk-monitoring  # (1)!
 3. Once approved, the PR gets merged to `main`
 4. You delete your branch and start a new one for the next task
 
-**We'll cover pull requests in detail in **Git Workflows** (coming soon) - for now, just know that pushing your branch is the first step toward getting your code into `main`.
+**Pull requests deserve a deep dive of their own — for now, just know that pushing your branch is the first step toward getting your code into `main`.**
 
 ### The Complete Daily Rhythm
 
@@ -284,7 +284,7 @@ git push origin feature/my-feature
 - **Commit often** - Small, focused commits are better
 - **Push your branch regularly** - Backs up your work to the remote
 - **Clear commit messages** - Your teammates (and future you) will thank you
-- **Use pull requests to merge to main** - Covered in **Git Workflows** (coming soon)
+- **Use pull requests to merge to main** - never commit directly to a shared `main`
 
 ## Common Collaboration Patterns
 
@@ -602,7 +602,6 @@ git push -u origin main           # Initial push (then switch to branches)
 - [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials/syncing) - Excellent collaboration guides
 
 ### Team Collaboration
-- **Git Workflows** (coming soon) - Advanced collaboration patterns (feature branches, pull requests)
 - [Code Review Best Practices](https://google.github.io/eng-practices/review/) - Google's code review guide
 
 ### Troubleshooting
@@ -611,4 +610,4 @@ git push -u origin main           # Initial push (then switch to branches)
 
 ---
 
-**What's Next:** You now know how to collaborate with Git. For advanced workflows like feature branches, pull requests, and conflict resolution, continue to **Git Workflows** (coming soon).
+**What's Next:** You now know how to collaborate with Git — clone, branch, push, pull, and stay out of `main`'s way. Advanced workflows like pull-request etiquette and conflict resolution all build directly on these commands.
