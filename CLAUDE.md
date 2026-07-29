@@ -74,6 +74,8 @@ This site serves platform engineers and SREs who are **currently employed** and 
 Example opening:
 > "It's 2am. The API is returning errors. You SSH into the server, curl the endpoint, and get back 500 lines of JSON. You squint at the terminal trying to find the error message buried somewhere in that wall of text. **This is why `jq` exists.**"
 
+**⚠️ Watch the formula, not just the topic (2026-07-28):** this immersive present-tense scenario is a different risk than "you've done X" (it's inviting the reader into a moment, not claiming their past), but it still bets they're willing to place themselves in it. Fine to keep as the incident-scenario device this site is built around — just don't let "you" load-bear a claim about the reader's specific history elsewhere in the article (that's the pattern eradicated site-wide 2026-07-28: see `feedback_hook_formula_not_reader_biography` in memory).
+
 ## Site Structure
 
 **NOT organized by learning levels** - SREs/Platform Engineers need tools by urgency and job context, not academic progression.
@@ -762,8 +764,8 @@ Structure should be:
 7. **Troubleshooting** - Common issues and solutions
 8. **Practice Exercises** - Hands-on reinforcement
 9. **Key Takeaways** - Table summarizing essential concepts
-10. **Further Reading** - Organized by category
-11. **What's Next** - Progression to related tools
+10. **What's Next** - Progression to related tools
+11. **Further Reading** - Organized by category
 
 **Workflow Articles (Git workflows, tmux sessions, shell productivity):**
 
