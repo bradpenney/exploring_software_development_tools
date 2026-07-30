@@ -264,7 +264,7 @@ This is the planned content organized as **series** at each level. Each tool can
 
 **Git Operations**: The user handles all git operations (commits, pushes, etc.) themselves. Do not commit or push changes.
 
-**MkDocs Operations**: The user handles running `mkdocs serve` and `mkdocs build` themselves. Do not run these commands.
+**MkDocs Operations (updated 2026-07-30):** `poetry run mkdocs build --strict` is allowed for testing/verification — use it to confirm changes actually build cleanly before handing off. `mkdocs serve` is allowed too if a live preview is genuinely needed, but only on a non-default port (3000 is almost always occupied by something else) and only as a short-lived test — never left running. The user still handles real preview sessions and all deploys.
 
 ## SEO Strategy and Publication Process
 
@@ -396,6 +396,8 @@ Uncomment the article in the `nav:` section of `mkdocs.yaml`:
     - Pods Deep Dive: level_1/pods.md
     # - Services: level_1/services.md  # Still in draft
 ```
+
+**Every tier needs its own overview page (mandatory, cross-site standard, added 2026-07-30):** before a tier's first article goes live, that tier must have a published `overview.md` linked at the top of its nav section — not just a flat list of topic subgroups. It's the tier's real SEO landing page and the reader's orientation point. **Fixed 2026-07-30:** `essentials/overview.md` written and wired into nav; homepage's Essentials card and closing CTA repointed at it instead of the individual Git Basics article.
 
 #### 4. Verify Publication
 

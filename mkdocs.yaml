@@ -74,7 +74,7 @@ plugins:
   - meta
   - exclude:
       glob:
-        # PUBLISHED (do NOT exclude): index.md, essentials/git/git_basics.md,
+        # PUBLISHED (do NOT exclude): index.md, essentials/overview.md, essentials/git/git_basics.md,
         # essentials/git/git_collaboration.md, essentials/web/inspecting_http_traffic.md.
         # Everything below is a DRAFT — excluded from build, sitemap, and search.
         # To publish: remove its line here AND uncomment it in nav.
@@ -144,6 +144,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - 📦 Essentials:
+      - Overview: essentials/overview.md
       - Git Series:
           - Git Basics: essentials/git/git_basics.md
           - Git Collaboration: essentials/git/git_collaboration.md

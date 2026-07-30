@@ -1,6 +1,6 @@
 ---
 date: "2026-02-20 22:43"
-title: Git Collaboration - Working with Remote Repositories
+title: "Git Clone, Push & Pull: Remote Collaboration Guide"
 description: Learn how platform engineers collaborate with Git. Clone repositories, push and pull changes, work with GitHub/GitLab, and sync with your team professionally.
 ---
 

@@ -1,6 +1,6 @@
 ---
 date: "2026-06-21 12:00"
-title: "Seeing API Traffic: curl -v and the Network Tab"
+title: "How to Inspect HTTP Traffic: curl -v & DevTools"
 description: "Curling an API and reading the JSON back is routine. Now watch what's really on the wire: curl -v and browser DevTools, for headers, status codes, and the full request lifecycle."
 ---
 

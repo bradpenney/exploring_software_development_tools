@@ -34,30 +34,11 @@ Content is structured by **urgency and job context**:
 
 <div class="grid cards" markdown>
 
--   :material-package-variant: **📦 Essentials**
+-   :material-package-variant: **[📦 Essentials](essentials/overview.md)**
 
     ---
 
-    **Core tools you need today.** Can't do the job without these. Each tool has a series of articles.
-
-    **Git Series:**
-
-    - **[Git Basics](./essentials/git/git_basics.md)** - Your first repository, three states, local version control
-    - **[Git Collaboration](./essentials/git/git_collaboration.md)** - Remote repos, GitHub/GitLab, teamwork
-    - Git Safety (coming soon) - .gitignore, secrets, undo commands
-    - Git Configuration (coming soon) - Aliases, editor setup, advanced config
-
-    **Web Tools Series:**
-
-    - **[Seeing API Traffic: curl -v and the Network Tab](./essentials/web/inspecting_http_traffic.md)** - Inspect headers, status codes, and the request lifecycle on the wire
-
-    **JQ Series:** (coming soon)
-
-    **YQ Series:** (coming soon)
-    - YQ - Wrangle YAML configs for K8s/Ansible (coming soon)
-
-    **Vim Series:** (coming soon)
-    - Vim Survival Mode - Edit on servers (coming soon)
+    Core tools you need today — can't do the job without these. Git past "commit and push," and inspecting real HTTP traffic. More tools (`jq`, `yq`, Vim, terminal diagnostics) landing as they publish.
 
 -   :material-lightning-bolt: **⚡ Efficiency**
 
@@ -112,4 +93,4 @@ This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosyst
 
 ---
 
-**Ready to remove tool friction?** Start with [Git Basics](./essentials/git/git_basics.md) - the first article in the Git Essentials series - to professionalize your scripts and infrastructure code.
+**Ready to remove tool friction?** Start with [Essentials](essentials/overview.md) to professionalize your scripts and infrastructure code.
