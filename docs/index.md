@@ -76,9 +76,9 @@ You're an **SRE or Platform Engineer** who:
 
 You may or may not have a traditional developer background. **This site meets you where you are.**
 
-## Integration with Other Sites
+## Part of the BradPenney.io Network
 
-This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosystem:
+This site is part of a family of progressive technical learning resources:
 
 - **[Exploring Linux](https://linux.bradpenney.io)** - Linux commands and system administration
 - **[Exploring Kubernetes](https://k8s.bradpenney.io)** - Kubernetes for platform engineers
