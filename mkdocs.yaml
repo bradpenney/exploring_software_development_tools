@@ -90,6 +90,7 @@ plugins:
         - "mastery/*"
   - rss:
       match_path: ".*"
+      pretty_print: true
       image: https://tools.bradpenney.io/images/exploring_software_development_tools.png
       abstract_chars_count: 160
       length: 20
