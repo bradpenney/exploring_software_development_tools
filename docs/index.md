@@ -94,3 +94,9 @@ This site is part of the [BradPenney.io](https://bradpenney.io) learning ecosyst
 ---
 
 **Ready to remove tool friction?** Start with [Essentials](essentials/overview.md) to professionalize your scripts and infrastructure code.
+
+## Subscribe by RSS
+
+New articles publish straight to the [RSS feed](https://tools.bradpenney.io/feed_rss_created.xml) — no algorithm, no email required.
+
+<a href="https://iheartrss.com/"><img src="https://iheartrss.com/iheartrss-dark.svg" alt="I ♥ RSS" width="88" height="31"></a>
