@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="rss.xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    
+    <title>Exploring Software Development Tools</title>
+    <description>Essential tools for SREs and platform engineers — Git, jq, yq, terminal IDEs, and productivity tooling that removes friction from infrastructure work.</description>
+    <link>https://tools.bradpenney.io/</link>
+    <atom:link href="https://tools.bradpenney.io/feed_rss_updated.xml" rel="self" type="application/rss+xml" />
+
+    
+    <managingEditor>Brad Penney</managingEditor>
+    
+    <language>en</language>
+
+    
+    <pubDate>Sat, 08 Aug 2026 01:40:36 -0000</pubDate>
+    <lastBuildDate>Sat, 08 Aug 2026 01:40:36 -0000</lastBuildDate>
+    <ttl>1440</ttl>
+
+    
+    <generator>MkDocs RSS plugin - v1.19.0</generator>
+
+    
+    
+    <image>
+      <url>https://tools.bradpenney.io/images/exploring_software_development_tools.png</url>
+      <title>Exploring Software Development Tools</title>
+      <link>https://tools.bradpenney.io/</link>
+    </image>
+    
+
+    
+    
+    <item>
+      <title>Home</title>
+      
+      
+      
+      
+        
+      
+      <description>Professional guides for SREs and Platform Engineers to master Git, JQ, Tmux, and Neovim. Remove tool friction and focus on building reliable infrastructure.</description>
+      <link>https://tools.bradpenney.io/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/</guid>
+      
+    </item>
+    
+    <item>
+      <title>FZF Mastery</title>
+      
+      
+      
+      
+        
+      
+      <description>fzf is a universal interactive filter, not just a history search — the primitive behind picking a pod, a branch, or a file without memorizing exact names.</description>
+      <link>https://tools.bradpenney.io/efficiency/fzf_advanced/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/fzf_advanced/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Git Workflows</title>
+      
+      
+      
+      
+        
+      
+      <description>The feature-branch workflow built for IaC — peer review and CI before anything touches production, plus the one extra validation step a YAML merge conflict needs that code doesn&#39;t.</description>
+      <link>https://tools.bradpenney.io/efficiency/git_workflows/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/git_workflows/</guid>
+      
+    </item>
+    
+    <item>
+      <title>GitHub CLI (gh)</title>
+      
+      
+      
+      
+        
+      
+      <description>Manage PRs, watch CI, and hit the GitHub API without leaving the shell — gh brings the browser&#39;s GitHub workflow to the terminal, scriptable and pipeable into jq.</description>
+      <link>https://tools.bradpenney.io/efficiency/github_cli/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/github_cli/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Multiple AI CLIs, One tmux Session</title>
+      
+      
+      
+      
+        
+      
+      <description>Splitting a tmux session across more than one AI CLI, and the specific move of pasting one agent&#39;s answer into another and asking what it thinks — treating models as independent reviewers, not one oracle.</description>
+      <link>https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      
+      
+      
+      
+        
+      
+      <description>Professional terminal workflows for platform engineers — persistent sessions, fuzzy navigation, a real Git workflow for infrastructure, and managing GitHub from the shell.</description>
+      <link>https://tools.bradpenney.io/efficiency/overview/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/overview/</guid>
+      
+    </item>
+    
+    <item>
+      <title>SSH Mastery</title>
+      
+      
+      
+      
+        
+      
+      <description>Beyond ssh user@host — the ~/.ssh/config aliases, port forwarding, and ProxyJump tunneling that turn SSH from a login prompt into your primary interface for remote platform work.</description>
+      <link>https://tools.bradpenney.io/efficiency/ssh_mastery/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/ssh_mastery/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Terminal Multiplexing (tmux)</title>
+      
+      
+      
+      
+        
+      
+      <description>tmux keeps a session alive on the server even when your connection breaks — sessions, windows, and panes for incident war rooms, connection resilience, and shared troubleshooting.</description>
+      <link>https://tools.bradpenney.io/efficiency/tmux/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/efficiency/tmux/</guid>
+      
+    </item>
+    
+    <item>
+      <title>jq: Parsing API Responses and Logs</title>
+      
+      
+      
+      
+        
+      
+      <description>jq is sed, awk, and grep purpose-built for JSON — filtering API responses, Kubernetes manifests, and structured logs during incident response without wrestling raw text.</description>
+      <link>https://tools.bradpenney.io/essentials/jq_parsing_json/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/jq_parsing_json/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      
+      
+      
+      
+        
+      
+      <description>The daily tools that separate a working professional from someone still fighting their environment — Git fundamentals, HTTP debugging, JSON/YAML wrangling, regex, and reading a struggling server.</description>
+      <link>https://tools.bradpenney.io/essentials/overview/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/overview/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Regular Expressions for SREs</title>
+      
+      
+      
+      
+        
+      
+      <description>The six regex characters that solve 80% of log-searching problems — finding IPs, filtering error codes, and transforming text with grep, sed, and capture groups.</description>
+      <link>https://tools.bradpenney.io/essentials/regex_for_sres/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/regex_for_sres/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Terminal Diagnostics</title>
+      
+      
+      
+      
+        
+      
+      <description>The SRE&#39;s vital signs — htop, free, df, iostat, ss, and dmesg, run in order, to turn a vague &#39;something&#39;s slow&#39; into a specific bottleneck before you&#39;ve been on the box a minute.</description>
+      <link>https://tools.bradpenney.io/essentials/terminal_diagnostics/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/terminal_diagnostics/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Vim Survival Mode</title>
+      
+      
+      
+      
+        
+      
+      <description>You&#39;re SSH&#39;d into a server with only vi available. Four commands — insert, escape, save, quit — get you in, fixed, and out without needing the rest of Vim&#39;s legendary learning curve.</description>
+      <link>https://tools.bradpenney.io/essentials/vim_survival_mode/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/vim_survival_mode/</guid>
+      
+    </item>
+    
+    <item>
+      <title>yq: Wrangling YAML Configs</title>
+      
+      
+      
+      
+        
+      
+      <description>yq is jq for YAML — auditing Kubernetes manifests for missing resource limits, merging config overlays, and editing indentation-sensitive files without a sed script waiting to break.</description>
+      <link>https://tools.bradpenney.io/essentials/yq_wrangling_yaml/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/yq_wrangling_yaml/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Git Basics</title>
+      
+      
+      
+      
+        
+      
+      <description>Learn Git fundamentals for platform engineers. Install Git, create your first repository, understand the three states, and start tracking your scripts professionally.</description>
+      <link>https://tools.bradpenney.io/essentials/git/git_basics/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/git/git_basics/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Git Collaboration</title>
+      
+      
+      
+      
+        
+      
+      <description>Learn how platform engineers collaborate with Git. Clone repositories, push and pull changes, work with GitHub/GitLab, and sync with your team professionally.</description>
+      <link>https://tools.bradpenney.io/essentials/git/git_collaboration/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/git/git_collaboration/</guid>
+      
+    </item>
+    
+    <item>
+      <title>Seeing API Traffic: curl -v and the Network Tab</title>
+      
+      
+      
+      
+        
+      
+      <description>Curling an API and reading the JSON back is routine. Now watch what&#39;s really on the wire: curl -v and browser DevTools, for headers, status codes, and the full request lifecycle.</description>
+      <link>https://tools.bradpenney.io/essentials/web/inspecting_http_traffic/</link>
+      <pubDate>Sat, 08 Aug 2026 01:39:52 -0300</pubDate>
+      <source url="https://tools.bradpenney.io/feed_rss_updated.xml">Exploring Software Development Tools</source>
+      
+      <guid isPermaLink="true">https://tools.bradpenney.io/essentials/web/inspecting_http_traffic/</guid>
+      
+    </item>
+    
+  </channel>
+</rss>

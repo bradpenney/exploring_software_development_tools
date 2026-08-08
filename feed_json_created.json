@@ -1,0 +1,203 @@
+{
+    "version": "https://jsonfeed.org/version/1.1",
+    "title": "Exploring Software Development Tools",
+    "home_page_url": "https://tools.bradpenney.io/",
+    "feed_url": "https://tools.bradpenney.io/feed_json_created.json",
+    "description": "Essential tools for SREs and platform engineers \u2014 Git, jq, yq, terminal IDEs, and productivity tooling that removes friction from infrastructure work.",
+    "icon": "https://tools.bradpenney.io/images/exploring_software_development_tools.png",
+    "authors": [
+        {
+            "name": "Brad Penney"
+        }
+    ],
+    "language": "en",
+    "items": [
+        {
+            "id": "https://tools.bradpenney.io/essentials/overview/",
+            "url": "https://tools.bradpenney.io/essentials/overview/",
+            "title": "Overview",
+            "content_html": "The daily tools that separate a working professional from someone still fighting their environment \u2014 Git fundamentals, HTTP debugging, JSON/YAML wrangling, regex, and reading a struggling server.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T12:15:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/overview/",
+            "url": "https://tools.bradpenney.io/efficiency/overview/",
+            "title": "Overview",
+            "content_html": "Professional terminal workflows for platform engineers \u2014 persistent sessions, fuzzy navigation, a real Git workflow for infrastructure, and managing GitHub from the shell.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T12:00:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/github_cli/",
+            "url": "https://tools.bradpenney.io/efficiency/github_cli/",
+            "title": "GitHub CLI (gh)",
+            "content_html": "Manage PRs, watch CI, and hit the GitHub API without leaving the shell \u2014 gh brings the browser's GitHub workflow to the terminal, scriptable and pipeable into jq.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T11:30:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/git_workflows/",
+            "url": "https://tools.bradpenney.io/efficiency/git_workflows/",
+            "title": "Git Workflows",
+            "content_html": "The feature-branch workflow built for IaC \u2014 peer review and CI before anything touches production, plus the one extra validation step a YAML merge conflict needs that code doesn't.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T11:15:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/",
+            "url": "https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/",
+            "title": "Multiple AI CLIs, One tmux Session",
+            "content_html": "Splitting a tmux session across more than one AI CLI, and the specific move of pasting one agent's answer into another and asking what it thinks \u2014 treating models as independent reviewers, not one oracle.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T11:00:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/fzf_advanced/",
+            "url": "https://tools.bradpenney.io/efficiency/fzf_advanced/",
+            "title": "FZF Mastery",
+            "content_html": "fzf is a universal interactive filter, not just a history search \u2014 the primitive behind picking a pod, a branch, or a file without memorizing exact names.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T10:45:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/tmux/",
+            "url": "https://tools.bradpenney.io/efficiency/tmux/",
+            "title": "Terminal Multiplexing (tmux)",
+            "content_html": "tmux keeps a session alive on the server even when your connection breaks \u2014 sessions, windows, and panes for incident war rooms, connection resilience, and shared troubleshooting.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T10:30:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/vim_survival_mode/",
+            "url": "https://tools.bradpenney.io/essentials/vim_survival_mode/",
+            "title": "Vim Survival Mode",
+            "content_html": "You're SSH'd into a server with only vi available. Four commands \u2014 insert, escape, save, quit \u2014 get you in, fixed, and out without needing the rest of Vim's legendary learning curve.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T10:15:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/yq_wrangling_yaml/",
+            "url": "https://tools.bradpenney.io/essentials/yq_wrangling_yaml/",
+            "title": "yq: Wrangling YAML Configs",
+            "content_html": "yq is jq for YAML \u2014 auditing Kubernetes manifests for missing resource limits, merging config overlays, and editing indentation-sensitive files without a sed script waiting to break.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T10:00:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/jq_parsing_json/",
+            "url": "https://tools.bradpenney.io/essentials/jq_parsing_json/",
+            "title": "jq: Parsing API Responses and Logs",
+            "content_html": "jq is sed, awk, and grep purpose-built for JSON \u2014 filtering API responses, Kubernetes manifests, and structured logs during incident response without wrestling raw text.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T09:45:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/regex_for_sres/",
+            "url": "https://tools.bradpenney.io/essentials/regex_for_sres/",
+            "title": "Regular Expressions for SREs",
+            "content_html": "The six regex characters that solve 80% of log-searching problems \u2014 finding IPs, filtering error codes, and transforming text with grep, sed, and capture groups.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T09:30:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/terminal_diagnostics/",
+            "url": "https://tools.bradpenney.io/essentials/terminal_diagnostics/",
+            "title": "Terminal Diagnostics",
+            "content_html": "The SRE's vital signs \u2014 htop, free, df, iostat, ss, and dmesg, run in order, to turn a vague 'something's slow' into a specific bottleneck before you've been on the box a minute.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T09:15:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/efficiency/ssh_mastery/",
+            "url": "https://tools.bradpenney.io/efficiency/ssh_mastery/",
+            "title": "SSH Mastery",
+            "content_html": "Beyond ssh user@host \u2014 the ~/.ssh/config aliases, port forwarding, and ProxyJump tunneling that turn SSH from a login prompt into your primary interface for remote platform work.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-08-05T09:00:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/web/inspecting_http_traffic/",
+            "url": "https://tools.bradpenney.io/essentials/web/inspecting_http_traffic/",
+            "title": "Seeing API Traffic: curl -v and the Network Tab",
+            "content_html": "Curling an API and reading the JSON back is routine. Now watch what's really on the wire: curl -v and browser DevTools, for headers, status codes, and the full request lifecycle.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-06-21T12:00:00-03:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/git/git_basics/",
+            "url": "https://tools.bradpenney.io/essentials/git/git_basics/",
+            "title": "Git Basics",
+            "content_html": "Learn Git fundamentals for platform engineers. Install Git, create your first repository, understand the three states, and start tracking your scripts professionally.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-02-20T22:43:00-04:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/essentials/git/git_collaboration/",
+            "url": "https://tools.bradpenney.io/essentials/git/git_collaboration/",
+            "title": "Git Collaboration",
+            "content_html": "Learn how platform engineers collaborate with Git. Clone repositories, push and pull changes, work with GitHub/GitLab, and sync with your team professionally.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2026-02-20T22:43:00-04:00",
+            "authors": [],
+            "tags": []
+        },
+        {
+            "id": "https://tools.bradpenney.io/",
+            "url": "https://tools.bradpenney.io/",
+            "title": "Home",
+            "content_html": "Professional guides for SREs and Platform Engineers to master Git, JQ, Tmux, and Neovim. Remove tool friction and focus on building reliable infrastructure.",
+            "image": null,
+            "date_modified": "2026-08-08T01:39:52-03:00",
+            "date_published": "2025-06-17T22:57:00-03:00",
+            "authors": [],
+            "tags": []
+        }
+    ]
+}
