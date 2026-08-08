@@ -451,6 +451,10 @@ git push origin main              # Share your changes
 git remote -v                     # See remote repositories
 ```
 
+## What's Next
+
+You've got version control basics down — init, add, commit, and the three states. **[Git Collaboration](git_collaboration.md)** covers working with remotes: clone, push, pull, and branching with a team. If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, that's the same next step.
+
 ## Further Reading
 
 ### Official Documentation
