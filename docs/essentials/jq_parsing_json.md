@@ -1,4 +1,30 @@
+---
+date: "2026-08-05 09:45"
+title: "jq: Parsing API Responses and Logs"
+description: "jq is sed, awk, and grep purpose-built for JSON — filtering API responses, Kubernetes manifests, and structured logs during incident response without wrestling raw text."
+---
+
 # JQ: Parsing API Responses and Logs
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 9 of 20
+
+        ---
+
+        ← [How Parsers Work](https://cs.bradpenney.io/efficiency/how_parsers_work/) · **you are here** · [Working with YAML](https://python.bradpenney.io/essentials/yaml/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 It's 2am. The API is returning errors. You SSH into the server, `curl` the endpoint, and get back 500 lines of JSON. You squint at the terminal trying to find the error message buried somewhere in that wall of text. **This is why `jq` exists.**
 
@@ -68,6 +94,8 @@ curl -s https://api.github.com/repos/stedolan/jq | jq '{name: .name, stars: .sta
 cat pods.json | jq '.items[] | select(.status.phase == "Running") | .metadata.name'
 ```
 
+![Running curl piped into jq, pretty-printing a GitHub API response and then extracting just the name and star count](../images/terminal/jq_quickstart.gif)
+
 ## How JQ Works
 
 `jq` operates on a stream of JSON entities. It takes an input, applies a **filter**, and sends the result to standard output.
@@ -75,7 +103,7 @@ cat pods.json | jq '.items[] | select(.status.phase == "Running") | .metadata.na
 ```mermaid
 graph TD
     Input[JSON Input<br/>from API/file/pipe]
-    Filter[JQ Filter<br/>e.g., .items[]]
+    Filter["JQ Filter<br/>e.g., .items[]"]
     Output[Transformed<br/>JSON/Text]
 
     Input --> Filter
@@ -85,6 +113,8 @@ graph TD
     style Filter fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
     style Output fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
 ```
+
+Three filters cover most of what you'll type in your first week with `jq`:
 
 <div class="grid cards" markdown>
 
@@ -156,40 +186,6 @@ In a world where everything is an API, JSON is the universal language. Whether y
     cat access.log | jq 'select(.latency_ms > 500) | {timestamp, path, latency: .latency_ms}'
     ```
 
-## Practice Problems
-
-??? question "Practice Problem 1: Extracting from Arrays"
-
-    Given the JSON `{"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]}`, how would you extract just the names of all users?
-
-    ??? tip "Answer"
-
-        ```bash
-        echo '{"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]}' | jq '.users[].name'
-        ```
-        The `.users` part gets the array, `[]` iterates over its elements, and `.name` extracts the field from each element.
-
-??? question "Practice Problem 2: Filtering"
-
-    How would you filter a list of numbers `[10, 25, 5, 40]` to only show those greater than 20?
-
-    ??? tip "Answer"
-
-        ```bash
-        echo '[10, 25, 5, 40]' | jq '.[] | select(. > 20)'
-        ```
-        `select()` is a powerful built-in function that keeps only the elements for which the expression inside is true.
-
-## Key Takeaways
-
-| Filter | Description |
-|:-------|:------------|
-| `.` | The identity filter (pretty-prints input) |
-| `.foo` | Extract field "foo" from an object |
-| `.[]` | Iterate over elements in an array |
-| `select(condition)` | Keep only elements matching the condition |
-| `|` | Pipe the output of one filter into the next |
-
 ## Common Pitfalls
 
 Even experienced users hit these `jq` gotchas:
@@ -199,6 +195,8 @@ Even experienced users hit these `jq` gotchas:
 -   :material-alert-circle: **Forgetting to Quote the Filter**
 
     ---
+
+    Your shell tries to expand `[]` and `{}` as glob patterns before `jq` ever sees them. Quote the filter and the shell leaves it alone:
 
     ```bash title="Wrong - Shell Interprets Braces" linenums="1"
     jq .items[] data.json  # ❌ Shell sees [] as glob pattern
@@ -235,13 +233,43 @@ Even experienced users hit these `jq` gotchas:
 
 </div>
 
+## Practice Problems
+
+??? question "Practice Problem 1: Extracting from Arrays"
+
+    Given the JSON `{"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]}`, how would you extract just the names of all users?
+
+    ??? tip "Answer"
+
+        ```bash title="Extract Names from an Array of Objects" linenums="1"
+        echo '{"users": [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]}' | jq '.users[].name'
+        ```
+        The `.users` part gets the array, `[]` iterates over its elements, and `.name` extracts the field from each element.
+
+??? question "Practice Problem 2: Filtering"
+
+    How would you filter a list of numbers `[10, 25, 5, 40]` to only show those greater than 20?
+
+    ??? tip "Answer"
+
+        ```bash title="Filter Numbers Greater Than 20" linenums="1"
+        echo '[10, 25, 5, 40]' | jq '.[] | select(. > 20)'
+        ```
+        `select()` is a powerful built-in function that keeps only the elements for which the expression inside is true.
+
+## Key Takeaways
+
+| Filter | Description |
+|:-------|:------------|
+| `.` | The identity filter (pretty-prints input) |
+| `.foo` | Extract field "foo" from an object |
+| `.[]` | Iterate over elements in an array |
+| `select(condition)` | Keep only elements matching the condition |
+| <code>&#124;</code> | Pipe the output of one filter into the next |
+
 ## What's Next
 
-Now that you've mastered JSON parsing with `jq`, explore these related tools:
-
-- **YQ** - Apply the same filtering approach to YAML files (K8s manifests, Ansible playbooks)
-- **Git for Infrastructure** - Version control for configs and scripts that use `jq`
-- **Shell Productivity** - Combine `jq` with `fzf` and aliases to save even more time
+If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, the next step is **[Working with YAML](https://python.bradpenney.io/essentials/yaml/)** on the Python site — the same JSON/YAML data model you just filtered, from the Python side. If you'd rather stay on the command line, jump straight to [yq: Wrangling YAML](yq_wrangling_yaml.md) below in Essentials — its syntax deliberately mirrors what you just learned here.
 
 ## Further Reading
 
@@ -260,8 +288,4 @@ Now that you've mastered JSON parsing with `jq`, explore these related tools:
 ### Deep Dives
 
 - [JQ Cookbook](https://github.com/jqlang/jq/wiki/Cookbook) - Common patterns and recipes for complex transformations
-- [Parsing JSON in Shell](https://cs.bradpenney.io/building_blocks/how_parsers_work/) - Understand the underlying theory of how `jq` parses data
-
----
-
-**Part of Essentials**: This article is part of the **📦 Essentials** series - core tools you need today for platform work.
+- [How Parsers Work](https://cs.bradpenney.io/efficiency/how_parsers_work/) - The lexing-then-parsing pipeline underneath every `jq` call, and why a malformed manifest fails the same way everywhere

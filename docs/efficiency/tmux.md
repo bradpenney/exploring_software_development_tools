@@ -1,8 +1,60 @@
+---
+date: "2026-08-05 10:30"
+title: "Terminal Multiplexing with tmux"
+description: "tmux keeps a session alive on the server even when your connection breaks — sessions, windows, and panes for incident war rooms, connection resilience, and shared troubleshooting."
+---
+
 # Terminal Multiplexing with tmux
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 13 of 20
+
+        ---
+
+        ← [Vim Survival Mode](https://tools.bradpenney.io/essentials/vim_survival_mode/) · **you are here** · [FZF Mastery](https://tools.bradpenney.io/efficiency/fzf_advanced/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 Your SSH connection just dropped during a long-running database migration. Without a multiplexer, your session is gone, and the process might be in an unknown state. With `tmux`, you just reconnect and pick up exactly where you left off. **This is why `tmux` is a non-negotiable tool for SREs.**
 
 `tmux` (Terminal Multiplexer) lets you manage multiple terminal sessions from a single window. More importantly, it keeps those sessions alive on the server even if your connection breaks.
+
+## Installation
+
+=== ":material-linux: Linux"
+
+    ```bash title="Install tmux on Linux" linenums="1"
+    # Debian/Ubuntu
+    sudo apt-get update && sudo apt-get install tmux
+
+    # RHEL/CentOS/Fedora
+    sudo dnf install tmux
+    ```
+
+=== ":material-apple: macOS"
+
+    ```bash title="Install tmux on macOS" linenums="1"
+    brew install tmux
+    ```
+
+=== ":material-microsoft-windows: Windows"
+
+    `tmux` is a Unix tool with no native Windows build. Use it inside WSL:
+
+    ```bash title="Install tmux inside WSL" linenums="1"
+    sudo apt-get update && sudo apt-get install tmux
+    ```
 
 ## Quick Start: The 3-Command Survival Guide
 
@@ -20,12 +72,20 @@ If you're new to `tmux`, these three commands provide 90% of the value:
 graph TD
     Server[Tmux Server] --> SessionA[Session: Incident-123]
     Server --> SessionB[Session: Maintenance]
-    
+
     SessionA --> Win1[Window 1: Logs]
     SessionA --> Win2[Window 2: Editor]
-    
+
     Win1 --> Pane1[Pane: tail -f access.log]
     Win1 --> Pane2[Pane: htop]
+
+    style Server fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style SessionA fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
+    style SessionB fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Win1 fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Win2 fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Pane1 fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Pane2 fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
 ```
 
 ## The Prefix Key
@@ -75,19 +135,41 @@ For an SRE, `tmux` is about **resilience and multitasking**.
 
 === ":material-wifi-off: Connection Resilience"
 
-    When performing risky operations (like upgrading a kernel or migrating a database), always run them inside a `tmux` session. If your VPN drops or your Wi-Fi flutters, the operation continues safely on the server.
+    When performing risky operations (like upgrading a kernel or migrating a database), always run them inside a `tmux` session. If your VPN drops or your Wi-Fi flutters, the operation continues safely on the server — reconnect and you're looking at the same terminal, mid-command.
+
+    ```bash title="Protect a Risky Operation from a Dropped Connection" linenums="1"
+    tmux new -s migration
+    # run the risky command here
+    # connection drops? reconnect from any terminal:
+    tmux attach -t migration
+    ```
 
 === ":material-monitor-dashboard: Incident War Room"
 
-    Split your screen into four quadrants:
+    Split your screen into four quadrants — logs, resource usage, cluster state, and a free shell for troubleshooting:
+
     - **Top Left**: `tail -f` the error logs
     - **Top Right**: `htop` for system resources
     - **Bottom Left**: `kubectl get pods -w`
     - **Bottom Right**: A shell for active troubleshooting
 
+    ```bash title="Start the Layout" linenums="1"
+    tmux new -s incident-123
+    tmux split-window -h
+    tmux split-window -v
+    ```
+
+    That's the first two cuts; see [Multiple AI CLIs, One tmux Session](multiple_ai_clis_tmux.md) for the pane-splitting mechanics that take you the rest of the way to four. A common variant once you're past initial triage: swap one quadrant for an AI CLI to sanity-check a hypothesis while the other three keep watching the system.
+
 === ":material-account-group: Shared Troubleshooting"
 
     Two people can attach to the same `tmux` session on a server. This is a "poor man's screen sharing" that is incredibly effective for remote pair-debugging without any special software.
+
+    ```bash title="Attach to a Shared Session" linenums="1"
+    tmux attach -t shared-debug
+    ```
+
+    Both people run this against the same session name — whatever either of you types, the other sees in real time.
 
 ## Practice Problems
 
@@ -119,6 +201,10 @@ For an SRE, `tmux` is about **resilience and multitasking**.
 | **Split Horizontally** | `Prefix` + `"` |
 | **Zoom Pane** | `Prefix` + `z` |
 
+## What's Next
+
+If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, the next step is **[FZF Mastery](fzf_advanced.md)** — panes and windows solve where things run, fzf solves picking what to run them on, without memorizing exact pod, branch, or file names.
+
 ## Further Reading
 
 ### Official Documentation
@@ -131,4 +217,3 @@ For an SRE, `tmux` is about **resilience and multitasking**.
 
 ### Deep Dives
 - [The Tao of Tmux](https://leanpub.com/the-tao-of-tmux/read) - A philosophical and technical deep dive into tmux workflows.
-- [Persistent SSH Connections](https://cs.bradpenney.io/building_blocks/computational_thinking/) - Understanding the abstraction of persistent sessions in distributed systems.

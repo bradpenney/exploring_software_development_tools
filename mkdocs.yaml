@@ -68,6 +68,7 @@ theme:
     - content.code.highlight
     - content.tooltips
     - content.code.mermaid
+    - navigation.path
 
 plugins:
   - search
@@ -75,17 +76,17 @@ plugins:
   - exclude:
       glob:
         # PUBLISHED (do NOT exclude): index.md, essentials/overview.md, essentials/git/git_basics.md,
-        # essentials/git/git_collaboration.md, essentials/web/inspecting_http_traffic.md.
+        # essentials/git/git_collaboration.md, essentials/web/inspecting_http_traffic.md,
+        # essentials/jq_parsing_json.md, essentials/regex_for_sres.md, essentials/terminal_diagnostics.md,
+        # essentials/vim_survival_mode.md, essentials/yq_wrangling_yaml.md, efficiency/overview.md,
+        # efficiency/ssh_mastery.md, efficiency/tmux.md, efficiency/multiple_ai_clis_tmux.md,
+        # efficiency/fzf_advanced.md, efficiency/git_workflows.md, efficiency/github_cli.md.
         # Everything below is a DRAFT — excluded from build, sitemap, and search.
         # To publish: remove its line here AND uncomment it in nav.
-        # Essentials drafts
-        - "essentials/jq_parsing_json.md"
-        - "essentials/regex_for_sres.md"
-        - "essentials/terminal_diagnostics.md"
-        - "essentials/vim_survival_mode.md"
-        - "essentials/yq_wrangling_yaml.md"
-        # Efficiency — all draft
-        - "efficiency/*"
+        # Efficiency drafts
+        - "efficiency/vscode_remote.md"
+        - "efficiency/shell_productivity.md"
+        - "efficiency/direnv.md"
         # Mastery — all draft
         - "mastery/*"
   - rss:
@@ -149,26 +150,27 @@ nav:
       - Git Series:
           - Git Basics: essentials/git/git_basics.md
           - Git Collaboration: essentials/git/git_collaboration.md
-      - Web Tools:
-          - "Seeing API Traffic: curl -v and the Network Tab": essentials/web/inspecting_http_traffic.md
 #          - Git Safety: essentials/git/git_safety.md
 #          - Git Configuration: essentials/git/git_configuration.md
-#      - JQ Series:
-#          - JQ Basics: essentials/jq/jq_basics.md
-#          - JQ Filters: essentials/jq/jq_filters.md
-#          - JQ for Logs: essentials/jq/jq_for_logs.md
-#      - YQ - Wrangling YAML: essentials/yq_wrangling_yaml.md
-#      - Vim Survival Mode: essentials/vim_survival_mode.md
-#      - Regular Expressions: essentials/regex_for_sres.md
-#      - Terminal Diagnostics: essentials/terminal_diagnostics.md
-#  - ⚡ Efficiency:
-#      - Terminal Multiplexing (tmux): efficiency/tmux.md
+      - Web Tools:
+          - "Seeing API Traffic: curl -v and the Network Tab": essentials/web/inspecting_http_traffic.md
+      - Data on the Command Line:
+          - "jq: Parsing API Responses and Logs": essentials/jq_parsing_json.md
+          - "yq: Wrangling YAML Configs": essentials/yq_wrangling_yaml.md
+          - Regular Expressions for SREs: essentials/regex_for_sres.md
+      - Surviving the Terminal:
+          - Terminal Diagnostics: essentials/terminal_diagnostics.md
+          - Vim Survival Mode: essentials/vim_survival_mode.md
+  - ⚡ Efficiency:
+      - Overview: efficiency/overview.md
+      - SSH Mastery: efficiency/ssh_mastery.md
+      - Terminal Multiplexing (tmux): efficiency/tmux.md
+      - FZF Mastery: efficiency/fzf_advanced.md
+      - "Multiple AI CLIs, One tmux Session": efficiency/multiple_ai_clis_tmux.md
+      - Git Workflows: efficiency/git_workflows.md
+      - GitHub CLI (gh): efficiency/github_cli.md
 #      - VS Code Remote: efficiency/vscode_remote.md
 #      - Shell Productivity: efficiency/shell_productivity.md
-#      - Git Workflows: efficiency/git_workflows.md
-#      - SSH Mastery: efficiency/ssh_mastery.md
-#      - GitHub CLI (gh): efficiency/github_cli.md
-#      - FZF Mastery: efficiency/fzf_advanced.md
 #      - Managing Environments (direnv): efficiency/direnv.md
 #  - 🎯 Mastery:
 #      - NeoVim Full Setup: mastery/neovim_full_setup.md

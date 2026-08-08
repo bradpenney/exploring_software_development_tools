@@ -1,12 +1,12 @@
 ---
-date: "2026-07-30 16:00"
-title: "Dev Tools Essentials: Git & HTTP Debugging"
-description: "The daily tools that separate a working professional from someone still fighting their environment — Git fundamentals, remote collaboration, and inspecting real HTTP traffic."
+date: "2026-08-05 12:15"
+title: "Dev Tools Essentials: Git, Data, and Terminal Diagnostics"
+description: "The daily tools that separate a working professional from someone still fighting their environment — Git fundamentals, HTTP debugging, JSON/YAML wrangling, regex, and reading a struggling server."
 ---
 
 # Essentials
 
-You already manage production systems. Essentials covers the tools you reach for constantly but never formally learned end to end — Git past "commit and push," and seeing what's actually on the wire when an API call doesn't do what you expected.
+You already manage production systems. Essentials covers the tools you reach for constantly but never formally learned end to end — Git past "commit and push," seeing what's actually on the wire when an API call doesn't do what you expected, and the data and diagnostic tools an incident actually runs on.
 
 <div class="grid cards two-col" markdown>
 
@@ -22,10 +22,20 @@ You already manage production systems. Essentials covers the tools you reach for
 
     **[How to Inspect HTTP Traffic](web/inspecting_http_traffic.md)** — `curl -v` and browser DevTools, for the headers and status codes a plain response body doesn't show you.
 
-</div>
+-   :material-code-json: **Data on the Command Line**
 
-More Essentials topics — `jq`, `yq`, Vim survival mode, regex for SREs, and terminal diagnostics — are still on the way.
+    ---
+
+    **[jq: Parsing API Responses and Logs](jq_parsing_json.md)**, **[yq: Wrangling YAML Configs](yq_wrangling_yaml.md)**, and **[Regular Expressions for SREs](regex_for_sres.md)** — filtering JSON, editing YAML safely, and the six regex characters that solve most log-searching problems.
+
+-   :material-console: **Surviving the Terminal**
+
+    ---
+
+    **[Terminal Diagnostics](terminal_diagnostics.md)** and **[Vim Survival Mode](vim_survival_mode.md)** — the first-60-seconds incident checklist, and enough Vim to fix a config and get out alive.
+
+</div>
 
 ---
 
-Start with **[Git for Beginners](git/git_basics.md)** if Git itself is still shaky, or jump straight to **[How to Inspect HTTP Traffic](web/inspecting_http_traffic.md)** if you're debugging an API right now.
+Start with **[Git for Beginners](git/git_basics.md)** if Git itself is still shaky, jump to **[How to Inspect HTTP Traffic](web/inspecting_http_traffic.md)** if you're debugging an API right now, or start with **[Terminal Diagnostics](terminal_diagnostics.md)** if you just landed on a struggling server and need to know what to check first.

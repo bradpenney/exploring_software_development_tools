@@ -6,8 +6,33 @@ description: Learn how platform engineers collaborate with Git. Clone repositori
 
 # Git Collaboration - Working with Remote Repositories
 
-!!! tip "Part of Git Essentials Series"
-    This is article 2 of the Git Essentials series. If you haven't mastered local repositories yet, start with [Git Basics](./git_basics.md) first.
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a deep dive and a pathway:</span> [Git Essentials](git_basics.md){: .pathway-pill } [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards two-col" markdown>
+
+    -   :material-source-repository: __Git Essentials__ — step 2 of 3
+
+        ---
+
+        ← [Git Basics](git_basics.md) · **you are here** · [Git Workflows for Infrastructure](../../efficiency/git_workflows.md) →
+
+        [Start the deep dive →](git_basics.md)
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 17 of 20
+
+        ---
+
+        ← [Git Basics](https://tools.bradpenney.io/essentials/git/git_basics/) · **you are here** · [Git Workflows for Infrastructure](https://tools.bradpenney.io/efficiency/git_workflows/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 Your teammate just shared a repository link: "Here's the monitoring scripts repo - clone it and add your disk space check." You stare at the URL. **Clone? Where does the code even go? How do you get your changes back to the team?**
 
@@ -92,6 +117,8 @@ Three commands control collaboration:
 | **`git push`** | Local → Remote | Sends your commits to the remote | Sharing your completed work |
 
 ## Setting Up Remote Repositories
+
+The exact steps depend on where your team hosts its Git server — the underlying `git remote add` and `git push -u` commands are the same everywhere, only the web UI for creating the repository changes.
 
 === ":material-github: GitHub"
 
@@ -194,6 +221,8 @@ git checkout -b feature/disk-monitoring  # (3)!
 2. Get latest changes from the team
 3. Create a new branch for your work (branch names often use `feature/`, `fix/`, or `chore/` prefixes)
 
+![Running git checkout -b to create a new branch, then git branch to confirm which branch is active](../../images/terminal/git_branch.gif)
+
 **What happens:** Git fetches commits from the remote and automatically merges them into your local branch. If there are no conflicts, you're ready to work. If there are conflicts, Git will tell you which files need manual resolution.
 
 **Output you'll see:**
@@ -288,6 +317,8 @@ git push origin feature/my-feature
 
 ## Common Collaboration Patterns
 
+Beyond the daily rhythm above, four situations come up often enough that it's worth knowing the exact commands cold instead of reconstructing them mid-incident:
+
 === ":material-clock-outline: The Morning Sync"
 
     **Start every day with `git pull`:**
@@ -366,6 +397,8 @@ git branch -vv  # (2)!
 
 ## Avoiding Common Mistakes
 
+Three mistakes cause most of the "why is my push rejected" and "how do I undo this" moments once a team is involved:
+
 <div class="grid cards" markdown>
 
 -   :material-alert: **Don't Push Broken Code**
@@ -435,7 +468,7 @@ CONFLICT (content): Merge conflict in monitoring.sh
 Automatic merge failed; fix conflicts and then commit the result.
 ```
 
-**What this means:** You and a teammate changed the same lines. Git can't automatically merge. This conflict often happens when multiple changes occur at the same level of Git's internal [tree structure](https://cs.bradpenney.io/building_blocks/binary_trees_and_representation/).
+**What this means:** You and a teammate changed the same lines. Git can't automatically merge. This conflict often happens when multiple changes occur at the same level of Git's internal [tree structure](https://cs.bradpenney.io/essentials/trees_basics/).
 
 **Quick resolution (we'll cover this deeply in Git Efficiency):**
 
@@ -590,6 +623,12 @@ git remote add origin <url>       # Link to remote repository
 git push -u origin main           # Initial push (then switch to branches)
 ```
 
+## What's Next
+
+You now know how to collaborate with Git — clone, branch, push, pull, and stay out of `main`'s way. **[Git Workflows for Infrastructure](../../efficiency/git_workflows.md)** covers the feature-branch discipline these commands build toward, including the extra validation step a YAML merge conflict needs that code doesn't.
+
+If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, that's the same next step.
+
 ## Further Reading
 
 ### Official Documentation
@@ -607,7 +646,3 @@ git push -u origin main           # Initial push (then switch to branches)
 ### Troubleshooting
 - [Oh Shit, Git!?!](https://ohshitgit.com/) - Common Git mistakes and how to fix them
 - [Git Flight Rules](https://github.com/k88hudson/git-flight-rules) - What to do when things go wrong
-
----
-
-**What's Next:** You now know how to collaborate with Git — clone, branch, push, pull, and stay out of `main`'s way. Advanced workflows like pull-request etiquette and conflict resolution all build directly on these commands.

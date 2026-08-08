@@ -1,4 +1,30 @@
+---
+date: "2026-08-05 09:30"
+title: "Regular Expressions for SREs: The Survival Syntax"
+description: "The six regex characters that solve 80% of log-searching problems — finding IPs, filtering error codes, and transforming text with grep, sed, and capture groups."
+---
+
 # Regular Expressions for SREs
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 5 of 20
+
+        ---
+
+        ← [`grep`](https://linux.bradpenney.io/essentials/grep/) · **you are here** · [Regular Expressions: The Formal Model](https://cs.bradpenney.io/efficiency/regular_expressions/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 You're searching through 10GB of logs for an IP address. You need to find all lines that contain "ERROR" but NOT "404". You're trying to rename 500 files that follow a specific naming pattern. **This is why you need Regex.**
 
@@ -17,19 +43,33 @@ If you know these characters, you can solve 80% of your log-searching problems.
 | `[ ]` | Any character in brackets | `[0-9]` matches any digit |
 | `` | Escape (treat next literally) | `\.` matches a literal dot |
 
+Which tool you reach for depends on what you're actually trying to do with the match:
+
+```mermaid
+graph TD
+    Task["What are you doing?"] -->|"Finding lines"| Grep["grep -E 'pattern'"]
+    Task -->|"Transforming text"| Sed["sed -E 's/pattern/replacement/'"]
+    Task -->|"Extracting one piece"| Capture["Capture groups: '( )'"]
+
+    style Task fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Grep fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Sed fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Capture fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+```
+
 ## Why Regex Matters for Platform Work
 
 SREs spend much of their time searching for needles in haystacks. Logs, configurations, and API responses are all text. Regex is the filter that removes the noise.
 
 ### Common Scenarios
 
-=== ":material-text-search: Finding IP Addresses"
+=== ":material-tag-outline: Finding Version Strings"
 
-    Searching for an IP in a log file:
-    ```bash title="Find IPs" linenums="1"
-    grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" access.log
+    A deploy went out with a bad release tag, and you need every line in the log that mentions a version number:
+    ```bash title="Find Version Strings" linenums="1"
+    grep -E "v[0-9]+\.[0-9]+\.[0-9]+" deploy.log
     ```
-    (Note: This is a "simple" version; a perfect IP regex is much longer!)
+    Same six characters at work: `[0-9]` for the digits, `.` for the literal dots between them (escaped so it doesn't match "any character" instead).
 
 === ":material-swap-horizontal: Cleaning Data with sed"
 
@@ -54,6 +94,9 @@ Capture groups `( )` allow you to extract specific parts of a match and reuse th
 # Change DD-MM-YYYY to YYYY-MM-DD
 echo "31-12-2023" | sed -E 's/([0-9]{2})-([0-9]{2})-([0-9]{4})/\3-\2-\1/'
 ```
+
+![Running the sed command above, transforming 31-12-2023 into 2023-12-31 using capture groups](../images/terminal/sed_capture_groups.gif)
+
 The `\1`, `\2`, and `\3` refer to the text matched inside the first, second, and third sets of parentheses.
 
 ## Practice Problems
@@ -64,7 +107,7 @@ The `\1`, `\2`, and `\3` refer to the text matched inside the first, second, and
 
     ??? tip "Answer"
 
-        ```bash
+        ```bash title="Match STOP at Line Start" linenums="1"
         grep "^STOP" file.txt
         ```
         The `^` anchor ensures the match only happens if "STOP" is the first thing on the line.
@@ -87,6 +130,10 @@ The `\1`, `\2`, and `\3` refer to the text matched inside the first, second, and
 | `?` | Zero or one of the previous (optional) |
 | `\|` | OR (e.g., `ERROR\|CRITICAL`) |
 
+## What's Next
+
+The survival syntax above is enough to solve real problems today. If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, the next step is **[Regular Expressions: The Formal Model](https://cs.bradpenney.io/efficiency/regular_expressions/)** on the Computer Science site — why a regex can take down a production system, and why some patterns are formally impossible to write.
+
 ## Further Reading
 
 ### Official Documentation
@@ -98,5 +145,5 @@ The `\1`, `\2`, and `\3` refer to the text matched inside the first, second, and
 - [Perl-Compatible Regular Expressions (PCRE)](https://www.pcre.org/) - The "advanced" flavor of regex used by many modern tools.
 
 ### Deep Dives
-- [Regular Expressions Theory](https://cs.bradpenney.io/building_blocks/regular_expressions/) - Deep dive into how regex engines work (Finite State Machines).
-- [Text Processing Philosophy](https://cs.bradpenney.io/building_blocks/computational_thinking/) - Why treating everything as text is the Unix philosophy.
+- [Regular Expressions: The Formal Model](https://cs.bradpenney.io/efficiency/regular_expressions/) - How regex engines actually work: backtracking, NFAs, and why ReDoS is a mathematical property, not a bug.
+- [Pipes and Redirection](https://linux.bradpenney.io/essentials/pipes_and_redirection/) - Why treating everything as text you can pipe between small tools is the Unix philosophy regex lives inside of.

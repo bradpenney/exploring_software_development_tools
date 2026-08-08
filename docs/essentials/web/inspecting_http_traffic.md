@@ -6,8 +6,33 @@ description: "Curling an API and reading the JSON back is routine. Now watch wha
 
 # Seeing API Traffic: curl -v and the Network Tab
 
-!!! tip "Part of a Learning Path"
-    This article is part of the [How APIs Actually Work](https://bradpenney.io/pathways/how-apis-work) pathway on [bradpenney.io](https://bradpenney.io) — a guided sequence through the topic. It also stands on its own.
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of 2 pathways:</span> [How APIs Actually Work](https://bradpenney.io/pathways/how-apis-work){: .pathway-pill } [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards two-col" markdown>
+
+    -   :material-web: __How APIs Actually Work__ — step 6 of 11
+
+        ---
+
+        ← [Anatomy of an HTTP Request and Response](https://cs.bradpenney.io/efficiency/web/anatomy_of_request_response/) · **you are here** · [Authentication vs Authorization in APIs](https://cs.bradpenney.io/efficiency/web/authentication_vs_authorization/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/how-apis-work)
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 7 of 20
+
+        ---
+
+        ← [Regular Expressions: The Formal Model](https://cs.bradpenney.io/efficiency/regular_expressions/) · **you are here** · [How Parsers Work](https://cs.bradpenney.io/efficiency/how_parsers_work/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 Curling an API, reading the JSON, checking the status code, moving on: that's the routine. But when something's wrong (a `401` that's hard to explain, a request that "works in `curl` but not the browser," a redirect that wasn't expected), the body of the response tells you almost nothing. The answer is in the parts you usually don't look at: the headers, the handshake, the redirects, the preflight.
 
@@ -59,7 +84,25 @@ $ curl -v https://api.example.com/orders
 7. The response header that explains *why* — `invalid_token`. This line is invisible without `-v`/`-i`, and it's the actual answer.
 8. Only now, the body — which by itself ("token expired") you might have missed the cause of.
 
-The lesson: the body said "token expired," but the *headers* (`WWW-Authenticate`, the `401` status) told the real story. Most API debugging lives above the body.
+![Running curl -v against an endpoint that rejects an expired token, showing the full request/response transcript](../../images/terminal/curl_v_401.gif)
+
+The lesson: the body said "token expired," but the *headers* (`WWW-Authenticate`, the `401` status) told the real story. Most API debugging lives above the body — five layers deep before you ever reach it:
+
+```mermaid
+graph TD
+    DNS["DNS lookup"] --> TLS["TLS handshake<br/>+ certificate"]
+    TLS --> Sent["Headers curl sent (>)"]
+    Sent --> Recv["Status + headers received (<)"]
+    Recv --> Body["Response body"]
+
+    style DNS fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style TLS fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Sent fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Recv fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
+    style Body fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+```
+
+`-v` shows every layer; a plain response only ever shows the last one.
 
 ## Inspecting Specific Layers
 
@@ -197,14 +240,29 @@ Speaking `curl` is the easy part; this is about listening as well as talking. Th
 
 ## What's Next
 
-Watching a real request go by end to end answers *what* happened. The next question is who's allowed to make it: **[Authentication vs Authorization in APIs](https://cs.bradpenney.io/efficiency/web/authentication_vs_authorization/)** — who you are vs. what you may do, and where each check actually happens.
+Watching a real request go by end to end answers *what* happened. Where you go next depends on which pathway brought you here:
+
+<div class="grid cards two-col" markdown>
+
+-   :material-shield-key: **[How APIs Actually Work](https://bradpenney.io/pathways/how-apis-work)**
+
+    ---
+
+    Next: **[Authentication vs Authorization in APIs](https://cs.bradpenney.io/efficiency/web/authentication_vs_authorization/)** — who you are vs. what you may do, and where each check actually happens.
+
+-   :material-console: **[Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal)**
+
+    ---
+
+    Next: **[How Parsers Work](https://cs.bradpenney.io/efficiency/how_parsers_work/)** — what actually turns that JSON response into something a tool like `jq` can query.
+
+</div>
+
+Landed here directly? Either link above is a reasonable next stop depending on which question you're chasing.
 
 ---
 
 ## Further Reading
-
-### Related Tools & Concepts
-
 
 ### Computer Science Fundamentals
 

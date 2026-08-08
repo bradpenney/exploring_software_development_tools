@@ -6,8 +6,33 @@ description: Learn Git fundamentals for platform engineers. Install Git, create 
 
 # Git Basics - Your First Repository
 
-!!! tip "Part of Git Essentials Series"
-    This is article 1 of the Git Essentials series. After mastering local repositories here, continue to **Git Collaboration** to learn remote repositories and teamwork.
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a deep dive and a pathway:</span> [Git Essentials](git_basics.md){: .pathway-pill } [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards two-col" markdown>
+
+    -   :material-source-repository: __Git Essentials__ — step 1 of 3
+
+        ---
+
+        ← *(first step)* · **you are here** · [Git Collaboration](git_collaboration.md) →
+
+        [Start the deep dive →](git_basics.md)
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 16 of 20
+
+        ---
+
+        ← [Multiple AI CLIs, One tmux Session](https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/) · **you are here** · [Git Collaboration](https://tools.bradpenney.io/essentials/git/git_collaboration/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 You're managing three versions of the same backup script: `backup.sh`, `backup_v2.sh`, and `backup_FINAL_USE_THIS_ONE.sh`. Last week, someone ran the wrong version in production. You spent an hour figuring out which one was actually deployed. **This is why professional engineers use version control.**
 
@@ -17,7 +42,7 @@ Whether you're writing BASH scripts, Python automation, Perl utilities, or manag
 
 Git is a **distributed version control system**. In plain English: it tracks every change you make to your files, who made it, when, and why. Think of it as an unlimited undo button combined with a time machine for your code.
 
-Under the hood, Git manages these changes as a **Directed Acyclic Graph (DAG)** of commits. Each commit points to its parent(s), creating a verifiable history that never loses data. You can learn more about how [trees and graph structures work](https://cs.bradpenney.io/building_blocks/binary_trees_and_representation/) on our computer science fundamentals site.
+Under the hood, Git manages these changes as a **Directed Acyclic Graph (DAG)** of commits. Each commit points to its parent(s), creating a verifiable history that never loses data. You can learn more about how [tree structures work](https://cs.bradpenney.io/essentials/trees_basics/) on our computer science fundamentals site.
 
 **For platform engineers, Git solves real problems:**
 
@@ -127,6 +152,8 @@ git commit -m "Initial commit: backup script v1"  # (4)!
 2. Initialize Git - creates a `.git` folder to track history
 3. Stage the file - tell Git you want to track this file
 4. Commit - save a snapshot with a descriptive message
+
+![Running git init, git add, and git commit on a real script, showing Git's actual output at each step](../../images/terminal/git_init_commit.gif)
 
 **Congratulations!** You just created your first Git repository. Your script is now version controlled.
 
@@ -265,6 +292,8 @@ Let's walk through real situations you'll encounter daily.
 
 ## Avoiding Common Pitfalls
 
+Three mistakes account for most of the "how do I undo this" panic new Git users hit in their first month — all three are prevented, not fixed after the fact:
+
 <div class="grid cards" markdown>
 
 -   :material-shield-alert: **Never Commit Secrets**
@@ -333,17 +362,6 @@ Let's walk through real situations you'll encounter daily.
     **Key insight:** If it's generated, temporary, or secret, it doesn't belong in Git.
 
 </div>
-
-## What's Next: Collaborating with Git
-
-You now know how to manage a **local** Git repository - tracking changes, viewing history, and undoing mistakes. But professional platform engineering is a team sport.
-
-**Continue to [Git Collaboration](git_collaboration.md)** to learn:
-
-- Remote repositories (GitHub, GitLab)
-- Clone, pull, push workflows
-- Daily team collaboration
-- Handling basic conflicts
 
 ## Practice Problems
 
@@ -443,12 +461,6 @@ git remote -v                     # See remote repositories
 - [GitHub Flow](https://docs.github.com/en/get-started/quickstart/github-flow) - Simple branch-based workflow for teams
 - [Pre-commit Hooks](https://pre-commit.com/) - Automate checks before commits (linting, security scans)
 
-### Deep Dives
-
 ### Platform Engineering Context
 - [Infrastructure as Code Best Practices](https://www.terraform.io/docs/cloud/guides/recommended-practices/index.html) - Why version control matters for IaC
 - [The Twelve-Factor App](https://12factor.net/) - Modern app/platform engineering principles (includes version control)
-
----
-
-**What's Next:** Once you're comfortable with basic Git, continue to [Git Collaboration](git_collaboration.md) to learn how to work with remote repositories, sync with your team, and use branch-based workflows professionally.

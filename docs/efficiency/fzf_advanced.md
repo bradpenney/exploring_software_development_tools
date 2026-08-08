@@ -1,16 +1,91 @@
+---
+date: "2026-08-05 10:45"
+title: "FZF Mastery: The Interactive Glue"
+description: "fzf is a universal interactive filter, not just a history search — the primitive behind picking a pod, a branch, or a file without memorizing exact names."
+---
+
 # FZF Mastery: The Interactive Glue
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 14 of 20
+
+        ---
+
+        ← [tmux](https://tools.bradpenney.io/efficiency/tmux/) · **you are here** · [Multiple AI CLIs, One tmux Session](https://tools.bradpenney.io/efficiency/multiple_ai_clis_tmux/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 Basic history searching (`Ctrl+r`) is most people's first and only use of `fzf`. But `fzf` is more than a history tool — it's a **universal interactive filter**, the "glue" that turns static lists into interactive workflows. **This is how custom CLI interfaces get built.**
 
 `fzf` takes any list of text, lets you filter it in real-time, and outputs your selection. This simple primitive can be combined with almost any other tool to create powerful, custom workflows.
 
-## The Core Concept: Input → Filter → Output
+## Installation
+
+=== ":material-linux: Linux"
+
+    ```bash title="Install fzf on Linux" linenums="1"
+    # Debian/Ubuntu
+    sudo apt-get update && sudo apt-get install fzf
+
+    # RHEL/CentOS/Fedora
+    sudo dnf install fzf
+    ```
+
+=== ":material-apple: macOS"
+
+    ```bash title="Install fzf on macOS" linenums="1"
+    brew install fzf
+    $(brew --prefix)/opt/fzf/install  # (1)!
+    ```
+
+    1. Sets up the `Ctrl+r` history and `Ctrl+t` file-widget key bindings for your shell.
+
+=== ":material-microsoft-windows: Windows"
+
+    ```bash title="Install fzf on Windows" linenums="1"
+    choco install fzf
+    # or
+    scoop install fzf
+    ```
+
+## The Core Concept: One Filter, Many Lists
+
+The same primitive sits in front of almost any list you'd otherwise scroll through by hand:
 
 ```mermaid
 graph LR
-    List[Any List: files, pods, commits] -- "pipe |" --> FZF[fzf]
-    FZF -- "selection" --> Command[Next Command]
+    Files["File names"] --> FZF{{"fzf"}}
+    Procs["Process list"] --> FZF
+    Branches["Git branches"] --> FZF
+    Pods["Pod names"] --> FZF
+    FZF --> Open["Open in editor"]
+    FZF --> Kill["Kill selected"]
+    FZF --> Checkout["Checkout branch"]
+    FZF --> Logs["Tail logs"]
+
+    style Files fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Procs fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Branches fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Pods fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style FZF fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
+    style Open fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Kill fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Checkout fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Logs fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
 ```
+
+Every alias and scenario below is the same shape: pipe a list in, get one selection out, hand it to the next command.
 
 ## Quick Start: The One-Liners
 
@@ -62,28 +137,39 @@ SREs spend their time navigating complex namespaces and large numbers of resourc
 
 ## Advanced FZF Features
 
+Three flags turn a basic selector into a real interface:
+
 <div class="grid cards" markdown>
 
 -   :material-eye: **The Preview Window**
 
     ---
 
-    **Why it matters:** See the contents of a file or the details of a resource *before* you select it.
+    **Why it matters:** See the contents of a file or the details of a resource *before* you select it, instead of guessing from the filename alone.
 
-    `fzf --preview 'bat --color=always {}'`
+    ```bash title="Preview Files While Filtering" linenums="1"
+    fzf --preview 'bat --color=always {}'
+    ```
 
 -   :material-cursor-default-click: **Multi-Select (`-m`)**
 
     ---
 
-    **Why it matters:** Select multiple items using `Tab`. Perfect for bulk operations like deleting files or stopping services.
+    **Why it matters:** Select multiple items using `Tab`, then act on all of them at once. Perfect for bulk operations like deleting a batch of files or stopping several services.
+
+    ```bash title="Select Multiple Files, Then Remove Them" linenums="1"
+    fzf --multi | xargs -r rm
+    ```
 
 -   :material-keyboard: **Custom Bindings**
 
     ---
 
-    **Why it matters:** Bind keys within `fzf` to perform actions.
-    `--bind 'ctrl-e:execute(vim {})'`
+    **Why it matters:** Bind keys within `fzf` itself to perform actions on the highlighted item, without exiting the selector first.
+
+    ```bash title="Open a File in Vim Without Leaving fzf" linenums="1"
+    fzf --bind 'ctrl-e:execute(vim {})'
+    ```
 
 </div>
 
@@ -95,7 +181,7 @@ SREs spend their time navigating complex namespaces and large numbers of resourc
 
     ??? tip "Answer"
 
-        ```bash
+        ```bash title="Preview First 10 Lines of Each File" linenums="1"
         fzf --preview 'head -n 10 {}'
         ```
 
@@ -105,7 +191,7 @@ SREs spend their time navigating complex namespaces and large numbers of resourc
 
     ??? tip "Answer"
 
-        ```bash
+        ```bash title="Extract the PID Column from a Selection" linenums="1"
         ps -ef | fzf | awk '{print $2}'
         ```
         `awk` is the perfect partner for `fzf` when you need to extract specific fields from a structured line of text.
@@ -120,6 +206,10 @@ SREs spend their time navigating complex namespaces and large numbers of resourc
 | **Header** | `--header 'text'` | Add a static header at the top |
 | **Exact Match** | `-e` | Use exact matching instead of fuzzy |
 
+## What's Next
+
+If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, the next step is **[Multiple AI CLIs, One tmux Session](multiple_ai_clis_tmux.md)** — filtering one list interactively is one pane's worth of work; the next step is running several panes at once and moving answers between them.
+
 ## Further Reading
 
 ### Official Documentation
@@ -131,5 +221,4 @@ SREs spend their time navigating complex namespaces and large numbers of resourc
 - [Peco](https://github.com/peco/peco) - Another interactive filtering tool.
 
 ### Deep Dives
-- [Pipes and Filters](https://cs.bradpenney.io/building_blocks/computational_thinking/) - The core Unix philosophy that makes `fzf` so powerful.
-- [Human-Computer Interaction](https://cs.bradpenney.io/building_blocks/how_parsers_work/) - Why interactive filtering is faster than manual command typing.
+- [Pipes and Redirection](https://linux.bradpenney.io/essentials/pipes_and_redirection/) - The core Unix philosophy — small tools connected by pipes — that makes `fzf` so powerful as connective tissue.

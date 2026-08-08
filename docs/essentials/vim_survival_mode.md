@@ -1,8 +1,34 @@
+---
+date: "2026-08-05 10:15"
+title: "Vim Survival Mode: The Bare Essentials"
+description: "You're SSH'd into a server with only vi available. Four commands — insert, escape, save, quit — get you in, fixed, and out without needing the rest of Vim's legendary learning curve."
+---
+
 # Vim Survival Mode
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 12 of 20
+
+        ---
+
+        ← [`yq`: Wrangling YAML](https://tools.bradpenney.io/essentials/yq_wrangling_yaml/) · **you are here** · [tmux](https://tools.bradpenney.io/efficiency/tmux/) →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 You're SSH'd into a production server. You need to fix a critical config error. You type `vi config.yaml` and suddenly you're in a world where the arrow keys don't work quite right, and you can't even figure out how to type. **Don't panic.**
 
-Vim is a ubiquitous text editor available on almost every Unix-like system. While it has a legendary learning curve, SREs only need a handful of commands to be dangerous. This is "Survival Mode"—the bare essentials to get in, fix the problem, and get out.
+Vim is a ubiquitous text editor available on almost every Unix-like system — it's the one editor you can count on being there with no install step, which is exactly why it's worth four minutes of survival training even if you'll never use it as a daily driver. (On a stripped-down container image it's occasionally missing; `apt-get install vim` or `apk add vim` gets it back.) While it has a legendary learning curve, SREs only need a handful of commands to be dangerous. This is "Survival Mode" — the bare essentials to get in, fix the problem, and get out.
 
 ## The Most Important Rule: Modal Editing
 
@@ -16,6 +42,11 @@ graph LR
     C -- "Enter/Esc" --> N
     N -- "v" --> V[Visual Mode]
     V -- "Esc" --> N
+
+    style N fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style I fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
+    style C fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style V fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
 ```
 
 1.  **Normal Mode**: For moving around and deleting text. **This is the default.**
@@ -78,6 +109,8 @@ As an SRE, you often work on "headless" systems (no GUI) or remote servers via S
 
 === ":material-alert: Hotfix in Production"
 
+    Nginx is throwing 502s over a typo in the config, and the fix is one line:
+
     1. `vi /etc/nginx/nginx.conf`
     2. `/server_name` (Search for the config line)
     3. `i` (Enter insert mode)
@@ -85,15 +118,20 @@ As an SRE, you often work on "headless" systems (no GUI) or remote servers via S
     5. `Esc`
     6. `:wq` (Save and quit)
 
+    This gets you out of the immediate fire — it is not *the* fix. The moment it's out, make the identical edit in the git-tracked source, commit it, and let your pipeline apply it normally. If the reconciler runs before you do that, your hand edit gets overwritten — that's a feature, not a bug: it's exactly what stops a break-glass edit from becoming permanent, undocumented drift.
+
 === ":material-text-search: Searching Logs"
 
     When viewing a large file in Vim:
+
     - `/pattern`: Search forward for "pattern"
     - `?pattern`: Search backward
     - `n`: Go to the next match
     - `N`: Go to the previous match
 
 === ":material-content-copy: Copy/Paste (Vim Style)"
+
+    Vim calls it "yanking," not copying, but it works the same way:
 
     - `yy`: "Yank" (copy) a line
     - `p`: "Put" (paste) after the cursor
@@ -129,6 +167,10 @@ As an SRE, you often work on "headless" systems (no GUI) or remote servers via S
 | `:q!` | Quit without saving |
 | `/text` | Search for "text" |
 
+## What's Next
+
+If you're following the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway, the next step is **[Terminal Multiplexing with tmux](../efficiency/tmux.md)** — editing one file with `vi` is the smallest unit of terminal work, and the next step up is not losing your whole session when the connection to that file drops.
+
 ## Further Reading
 
 ### Official Documentation
@@ -141,4 +183,3 @@ As an SRE, you often work on "headless" systems (no GUI) or remote servers via S
 
 ### Deep Dives
 - [Vim Adventures](https://vim-adventures.com/) - A game that teaches Vim motions.
-- [Modal Editing Philosophy](https://cs.bradpenney.io/building_blocks/computational_thinking/) - Why separating navigation from editing is a powerful abstraction.

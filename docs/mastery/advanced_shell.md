@@ -147,7 +147,7 @@ main "$@"
 | **Function** | `name() { ... }` | Complex logic and arguments |
 | **Default Value**| `${VAR:-default}` | Handling missing inputs |
 | **Strict Mode** | `set -euo pipefail` | Writing safe, reliable scripts |
-| **Silent Fail** | `command || true` | When a non-zero exit is acceptable |
+| **Silent Fail** | <code>command &#124;&#124; true</code> | When a non-zero exit is acceptable |
 
 ## Further Reading
 

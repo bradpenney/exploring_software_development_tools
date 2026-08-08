@@ -1,8 +1,64 @@
+---
+date: "2026-08-05 11:30"
+title: "GitHub CLI (gh): Workflow Automation"
+description: "Manage PRs, watch CI, and hit the GitHub API without leaving the shell — gh brings the browser's GitHub workflow to the terminal, scriptable and pipeable into jq."
+---
+
 # GitHub CLI (gh): Workflow Automation
+
+<!-- PATHWAY_ROADMAP:START -->
+<div class="pathway-pills" markdown>
+:material-map-marker-path: <span class="pathway-pills__label">Part of a pathway:</span> [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal){: .pathway-pill }
+</div>
+
+??? abstract ":material-map-legend: Consult the map"
+
+    <div class="grid cards" markdown>
+
+    -   :material-console: __Debugging With Nothing But a Terminal__ — step 19 of 20
+
+        ---
+
+        ← [Git Workflows for Infrastructure](https://tools.bradpenney.io/efficiency/git_workflows/) · **you are here** · *GitHub Actions for SREs (coming soon)* →
+
+        [Start the pathway →](https://bradpenney.io/pathways/nothing-but-a-terminal)
+
+    </div>
+<!-- PATHWAY_ROADMAP:END -->
 
 A finished code change usually means opening a browser, navigating to the repo, clicking "New Pull Request," filling out the form, and adding reviewers. **There is a better way.**
 
 The GitHub CLI (`gh`) brings the power of GitHub directly to your terminal. For SREs, this means you can manage PRs, view CI/CD status, and even interact with GitHub Actions without ever leaving your shell.
+
+## Installation
+
+=== ":material-linux: Linux"
+
+    ```bash title="Install gh on Linux" linenums="1"
+    # Debian/Ubuntu
+    type -p curl >/dev/null || sudo apt install curl -y
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+    sudo apt update && sudo apt install gh -y
+
+    # RHEL/CentOS/Fedora
+    sudo dnf install gh
+    ```
+
+=== ":material-apple: macOS"
+
+    ```bash title="Install gh on macOS" linenums="1"
+    brew install gh
+    ```
+
+=== ":material-microsoft-windows: Windows"
+
+    ```bash title="Install gh on Windows" linenums="1"
+    choco install gh
+    # or
+    winget install --id GitHub.cli
+    ```
+
+Then authenticate once — this is the first step in Quick Start below.
 
 ## Quick Start: Get Productive in 3 Minutes
 
@@ -10,6 +66,20 @@ The GitHub CLI (`gh`) brings the power of GitHub directly to your terminal. For 
 2.  **Create a PR**: `gh pr create --title "feat: add vpc logging" --body "See Jira-123"`
 3.  **Check CI**: `gh run watch` (Watch your GitHub Actions run in real-time)
 4.  **Merge**: `gh pr merge --auto --squash`
+
+Four commands, one continuous loop, no browser tab required:
+
+```mermaid
+graph LR
+    Auth["gh auth login"] --> Create["gh pr create"]
+    Create --> Watch["gh run watch"]
+    Watch --> Merge["gh pr merge"]
+
+    style Auth fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Create fill:#2d3748,stroke:#cbd5e0,stroke-width:2px,color:#fff
+    style Watch fill:#d69e2e,stroke:#cbd5e0,stroke-width:2px,color:#000
+    style Merge fill:#2f855a,stroke:#cbd5e0,stroke-width:2px,color:#fff
+```
 
 ## Why GitHub CLI Matters for Platform Work
 
@@ -43,6 +113,8 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 
 ## Essential Commands
 
+Three command groups cover nearly everything above:
+
 <div class="grid cards" markdown>
 
 -   :material-source-branch: **PR Management (`gh pr`)**
@@ -51,9 +123,13 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 
     **Why it matters:** Create, list, view, and merge pull requests without a mouse.
 
-    - `gh pr create`
-    - `gh pr status`
-    - `gh pr diff`
+    ```bash title="Check a PR's Status and Diff" linenums="1"
+    gh pr status        # (1)!
+    gh pr diff 123       # (2)!
+    ```
+
+    1. Shows PRs relevant to you: created, review-requested, or assigned.
+    2. Shows the actual code diff for PR #123, right in the terminal.
 
 -   :material-play-circle: **Actions Workflow (`gh run`)**
 
@@ -61,15 +137,23 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 
     **Why it matters:** Monitor and trigger GitHub Actions. Invaluable for debugging failing CI/CD pipelines.
 
-    - `gh run list`
-    - `gh run view --log`
-    - `gh workflow run deploy.yml`
+    ```bash title="Find and Read a Failed Run's Logs" linenums="1"
+    gh run list --limit 5   # (1)!
+    gh run view --log       # (2)!
+    ```
+
+    1. See recent runs and their status at a glance.
+    2. Stream the full log of the most recent run — no need to open the Actions tab.
 
 -   :material-code-json: **API Access (`gh api`)**
 
     ---
 
-    **Why it matters:** Full access to the GitHub REST API. Perfect for building custom SRE tools.
+    **Why it matters:** Full access to the GitHub REST API for anything the built-in commands don't cover — already authenticated, no separate token to manage.
+
+    ```bash title="Check Your Own Rate Limit" linenums="1"
+    gh api rate_limit
+    ```
 
 </div>
 
@@ -81,7 +165,7 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 
     ??? tip "Answer"
 
-        ```bash
+        ```bash title="Auto-Merge Once Checks Pass" linenums="1"
         gh pr merge --auto --squash
         ```
         The `--auto` flag enables "auto-merge," which will complete the merge automatically once all required status checks have passed.
@@ -92,7 +176,7 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 
     ??? tip "Answer"
 
-        ```bash
+        ```bash title="Stream Logs from the Latest Run" linenums="1"
         gh run view --log
         ```
         This will stream the logs of the most recent run directly to your terminal. You can even pipe this to `grep` or `jq` if the logs are structured!
@@ -107,6 +191,12 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 | `gh repo clone` | Intelligent cloning (handles SSH/HTTPS) |
 | `gh alias set` | Create custom GitHub commands |
 
+## What's Next
+
+`gh api` returning raw JSON you can pipe into `jq` is the same wire-level data [Seeing API Traffic](../essentials/web/inspecting_http_traffic.md) taught you to read with `curl -v`, this time from an authenticated CLI instead of a raw request.
+
+This is the last free step in the [Debugging With Nothing But a Terminal](https://bradpenney.io/pathways/nothing-but-a-terminal) pathway. *Turning everything you just did by hand into something that runs itself — GitHub Actions for SREs — is Mastery tier, coming soon.*
+
 ## Further Reading
 
 ### Official Documentation
@@ -118,5 +208,4 @@ SREs often manage dozens of repositories simultaneously. Using a browser for eve
 - [Octokit](https://github.com/octokit) - Official GitHub SDKs for building deeper integrations.
 
 ### Deep Dives
-- [API Driven Development](https://cs.bradpenney.io/building_blocks/computational_thinking/) - How the GitHub CLI uses the same APIs you can access via `curl`.
-- [Workflow Automation](https://cs.bradpenney.io/building_blocks/how_parsers_work/) - Principles of removing manual steps from the software lifecycle.
+- [Seeing API Traffic: curl -v and the Network Tab](https://tools.bradpenney.io/essentials/web/inspecting_http_traffic/) - The same request/response anatomy `gh` is automating for you underneath.
